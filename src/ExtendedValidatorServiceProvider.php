@@ -7,6 +7,7 @@ use Illuminate\Support\ServiceProvider as IlluminateServiceProvider;
 use AvtoDev\ExtendedLaravelValidator\Extensions\GrzCodeValidatorExtension;
 use AvtoDev\ExtendedLaravelValidator\Extensions\StsCodeValidatorExtension;
 use AvtoDev\ExtendedLaravelValidator\Extensions\VinCodeValidatorExtension;
+use AvtoDev\ExtendedLaravelValidator\Extensions\PtsCodeValidatorExtension;
 
 /**
  * Class ExtendedValidatorServiceProvider.
@@ -44,6 +45,7 @@ class ExtendedValidatorServiceProvider extends IlluminateServiceProvider
             VinCodeValidatorExtension::class,
             GrzCodeValidatorExtension::class,
             StsCodeValidatorExtension::class,
+            PtsCodeValidatorExtension::class,
         ];
     }
 

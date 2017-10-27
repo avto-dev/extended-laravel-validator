@@ -43,9 +43,6 @@
             ]
         }
     },
-    "suggest": {
-        "avto-dev/static-references-laravel": "Required for more thorough values validation"
-    },
     "config": {
         "sort-packages": true
     }

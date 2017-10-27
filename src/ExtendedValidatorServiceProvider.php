@@ -2,6 +2,8 @@
 
 namespace AvtoDev\ExtendedLaravelValidator;
 
+use AvtoDev\ExtendedLaravelValidator\Extensions\GrzCodeValidatorExtension;
+use AvtoDev\ExtendedLaravelValidator\Extensions\StsCodeValidatorExtension;
 use Illuminate\Contracts\Validation\Factory as Validator;
 use Illuminate\Support\ServiceProvider as IlluminateServiceProvider;
 use AvtoDev\ExtendedLaravelValidator\Extensions\GrzCodeValidatorExtension;
@@ -42,6 +44,7 @@ class ExtendedValidatorServiceProvider extends IlluminateServiceProvider
         return [
             VinCodeValidatorExtension::class,
             GrzCodeValidatorExtension::class,
+            StsCodeValidatorExtension::class,
         ];
     }
 

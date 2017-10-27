@@ -38,29 +38,8 @@ abstract class AbstractExtensionTestCase extends AbstractUnitTestCase
     }
 
     /**
-     * Возвращает массив **корректных** значений для данного правила валидации.
-     *
-     * @return string[]
-     */
-    abstract protected function getValidValues();
-
-    /**
-     * Возвращает массив **НЕ корректных** значений для данного правила валидации.
-     *
-     * @return string[]
-     */
-    abstract protected function getInvalidValues();
-
-    /**
-     * Возвращает имя класса тестируемого расширения для валидатора.
-     *
-     * @return string
-     */
-    abstract protected function getExtensionClassName();
-
-    /**
      * Тест того, что расширение производит валидацию заведомо верных значений.
-     * 
+     *
      * @return void
      */
     public function testPassesWithValidValues()
@@ -109,4 +88,25 @@ abstract class AbstractExtensionTestCase extends AbstractUnitTestCase
 
         $this->assertGreaterThanOrEqual(1, count($values));
     }
+
+    /**
+     * Возвращает массив **корректных** значений для данного правила валидации.
+     *
+     * @return string[]
+     */
+    abstract protected function getValidValues();
+
+    /**
+     * Возвращает массив **НЕ корректных** значений для данного правила валидации.
+     *
+     * @return string[]
+     */
+    abstract protected function getInvalidValues();
+
+    /**
+     * Возвращает имя класса тестируемого расширения для валидатора.
+     *
+     * @return string
+     */
+    abstract protected function getExtensionClassName();
 }

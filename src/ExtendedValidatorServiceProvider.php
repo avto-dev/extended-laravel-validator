@@ -32,16 +32,6 @@ class ExtendedValidatorServiceProvider extends IlluminateServiceProvider
     }
 
     /**
-     * Возвращает инстанс валидатора.
-     *
-     * @return Validator
-     */
-    protected function getValidator()
-    {
-        return $this->app->make('validator');
-    }
-
-    /**
      * Возвращает массив имен классов расширений валидатора, подлежащих загрузке.
      *
      * @return string[]
@@ -51,6 +41,16 @@ class ExtendedValidatorServiceProvider extends IlluminateServiceProvider
         return [
             VinCodeValidatorExtension::class,
         ];
+    }
+
+    /**
+     * Возвращает инстанс валидатора.
+     *
+     * @return Validator
+     */
+    protected function getValidator()
+    {
+        return $this->app->make('validator');
     }
 
     /**

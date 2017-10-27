@@ -2,8 +2,8 @@
 
 namespace AvtoDev\ExtendedLaravelValidator\Extensions;
 
-use AvtoDev\ExtendedLaravelValidator\AbstractValidatorExtension;
 use Illuminate\Support\Str;
+use AvtoDev\ExtendedLaravelValidator\AbstractValidatorExtension;
 
 /**
  * Class VinCodeValidatorExtension.

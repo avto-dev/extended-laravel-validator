@@ -9,11 +9,12 @@ use AvtoDev\ExtendedLaravelValidator\Extensions\PtsCodeValidatorExtension;
 use AvtoDev\ExtendedLaravelValidator\Extensions\StsCodeValidatorExtension;
 use AvtoDev\ExtendedLaravelValidator\Extensions\VinCodeValidatorExtension;
 use AvtoDev\ExtendedLaravelValidator\Extensions\BodyCodeValidatorExtension;
+use AvtoDev\ExtendedLaravelValidator\Extensions\ChassisCodeValidatorExtension;
 
 /**
  * Class ExtendedValidatorServiceProvider.
  *
- * Сервис-провайдер, расширяющий правила валидации Laravel-валидатора правилами для идентификационных сущностей.
+ * Сервис-провайдер, расширяющий правила валидации Laravel-валидатора.
  */
 class ExtendedValidatorServiceProvider extends IlluminateServiceProvider
 {
@@ -48,6 +49,7 @@ class ExtendedValidatorServiceProvider extends IlluminateServiceProvider
             StsCodeValidatorExtension::class,
             PtsCodeValidatorExtension::class,
             BodyCodeValidatorExtension::class,
+            ChassisCodeValidatorExtension::class,
         ];
     }
 

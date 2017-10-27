@@ -47,7 +47,7 @@ class GrzCodeValidatorExtension extends AbstractValidatorExtension
             $uppercase = Str::upper($value);
 
             // Удаляем все символы, кроме разрешенных
-            $cleared = preg_replace("~[^0-9$kyr_chars]~u", '', $uppercase);
+            $cleared = preg_replace("~[^0-9{$kyr_chars}]~u", '', $uppercase);
 
             // Вычисляем длину получившейся строки
             $length = Str::length($cleared);

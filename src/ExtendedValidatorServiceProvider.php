@@ -5,9 +5,9 @@ namespace AvtoDev\ExtendedLaravelValidator;
 use Illuminate\Contracts\Validation\Factory as Validator;
 use Illuminate\Support\ServiceProvider as IlluminateServiceProvider;
 use AvtoDev\ExtendedLaravelValidator\Extensions\GrzCodeValidatorExtension;
+use AvtoDev\ExtendedLaravelValidator\Extensions\PtsCodeValidatorExtension;
 use AvtoDev\ExtendedLaravelValidator\Extensions\StsCodeValidatorExtension;
 use AvtoDev\ExtendedLaravelValidator\Extensions\VinCodeValidatorExtension;
-use AvtoDev\ExtendedLaravelValidator\Extensions\PtsCodeValidatorExtension;
 
 /**
  * Class ExtendedValidatorServiceProvider.

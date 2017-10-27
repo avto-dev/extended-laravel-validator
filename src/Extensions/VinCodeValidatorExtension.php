@@ -42,12 +42,12 @@ class VinCodeValidatorExtension extends AbstractValidatorExtension
             // Значение в верхнем регистре
             $uppercase = Str::upper($value);
 
-            // Переводим в верхний регистр и удаляем все символы, кроме разрешенных
-            $cleared_value = preg_replace('~[^0-9ABCDEFGHJKLMNPRSTUVWXYZ]~', '', $uppercase);
+            // Удаляем все символы, кроме разрешенных
+            $cleared = preg_replace('~[^0-9ABCDEFGHJKLMNPRSTUVWXYZ]~', '', $uppercase);
 
             $stack[$value] = (
                 Str::length($value) === 17 // Длинна соответствует
-                && $uppercase === $cleared_value // После удаления запрещенных символов - значение не изменилось
+                && $uppercase === $cleared // После удаления запрещенных символов - значение не изменилось
                 && preg_match('~[A-Z]~', $uppercase) === 1 // Содержит символы
                 && preg_match('~\d~', $value) === 1 // Содержит числа
                 && ! Str::contains($uppercase, ['I', 'O', 'Q']) // Не содержит запрещенные символы

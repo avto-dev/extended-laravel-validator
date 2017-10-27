@@ -8,6 +8,7 @@ use AvtoDev\ExtendedLaravelValidator\Extensions\GrzCodeValidatorExtension;
 use AvtoDev\ExtendedLaravelValidator\Extensions\PtsCodeValidatorExtension;
 use AvtoDev\ExtendedLaravelValidator\Extensions\StsCodeValidatorExtension;
 use AvtoDev\ExtendedLaravelValidator\Extensions\VinCodeValidatorExtension;
+use AvtoDev\ExtendedLaravelValidator\Extensions\BodyCodeValidatorExtension;
 
 /**
  * Class ExtendedValidatorServiceProvider.
@@ -46,6 +47,7 @@ class ExtendedValidatorServiceProvider extends IlluminateServiceProvider
             GrzCodeValidatorExtension::class,
             StsCodeValidatorExtension::class,
             PtsCodeValidatorExtension::class,
+            BodyCodeValidatorExtension::class,
         ];
     }
 

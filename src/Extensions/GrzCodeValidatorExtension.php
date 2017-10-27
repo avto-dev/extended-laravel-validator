@@ -56,9 +56,9 @@ class GrzCodeValidatorExtension extends AbstractValidatorExtension
                 $length >= 8 && $length <= 9 // Проверяем соответствие минимальной и максимальной длине
                 && $uppercase === $cleared // После удаления запрещенных символов - значение не изменилось
                 && ( // Соответствует ли одному из шаблонов
-                    preg_match("~[$kyr_chars]{1}\d{3}[$kyr_chars]{2}\d{2,3}~u", $cleared) === 1 // А001АА177
-                    || preg_match("~[$kyr_chars]{2}\d{4}\d{2,3}~u", $cleared) === 1 // АА0001177
-                    || preg_match("~\d{4}[$kyr_chars]{2}\d{2,3}~u", $cleared) === 1 // 0001АА177
+                    preg_match("~[{$kyr_chars}]{1}\d{3}[{$kyr_chars}]{2}\d{2,3}~u", $cleared) === 1 // А001АА177
+                    || preg_match("~[{$kyr_chars}]{2}\d{4}\d{2,3}~u", $cleared) === 1 // АА0001177
+                    || preg_match("~\d{4}[{$kyr_chars}]{2}\d{2,3}~u", $cleared) === 1 // 0001АА177
                 )
             );
         }

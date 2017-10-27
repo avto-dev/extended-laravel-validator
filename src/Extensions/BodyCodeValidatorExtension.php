@@ -6,25 +6,22 @@ use Illuminate\Support\Str;
 use AvtoDev\ExtendedLaravelValidator\AbstractValidatorExtension;
 
 /**
- * Class StsCodeValidatorExtension.
+ * Class BodyCodeValidatorExtension.
  *
- * Правило валидации номера свидетельства о регистрации транспортного средства (СТС).
+ * Правило валидации номера кузова транспортного средства.
  *
- * Серия представляет собой четыре знака: 2 цифры - пробел - 2 буквы. Например, «11 АА». Далее идет номер
- * свидетельства, состоящий из 6 цифр. То есть в итоге, мы сможем увидеть следующую запись: «11 АА 112233».
+ * Конкретные данные о стандарте номера не были найдены на момент написания данных строк.
  *
- * Вместо букв так же могут быть и цифры.
- *
- * @see https://ru.wikipedia.org/wiki/Свидетельство_о_регистрации_транспортного_средства
+ * @see https://ru.wikipedia.org/wiki/Паспорт_транспортного_средства
  */
-class StsCodeValidatorExtension extends AbstractValidatorExtension
+class BodyCodeValidatorExtension extends AbstractValidatorExtension
 {
     /**
      * {@inheritdoc}
      */
     public function name()
     {
-        return 'sts_code';
+        return 'body_code';
     }
 
     /**
@@ -47,9 +44,10 @@ class StsCodeValidatorExtension extends AbstractValidatorExtension
             $length = Str::length($uppercase);
 
             $stack[$value] = (
-                $length >= 10 && $length <= 12 // Проверяем соответствие минимальной и максимальной длине
+                $length >= 7 && $length <= 15 // Проверяем соответствие минимальной и максимальной длине
+                && preg_match('~\d~', $value) === 1 // Содержит числа
                 // Соответствует ли шаблону
-                && preg_match("~^\d{2}(\s|)([{$kyr_chars}]{2}|\d{2})(\s|)\d{6}$~u", $uppercase) === 1
+                && preg_match("~^[{$kyr_chars}A-Z\d]{2,}(\-|\s|)[{$kyr_chars}A-Z\d]{2,9}$~u", $uppercase) === 1
             );
         }
 

@@ -1,0 +1,52 @@
+{
+    "name": "avto-dev/extended-laravel-validator",
+    "description": "Extended validation rules for Laravel applications",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Avto Develop",
+            "homepage": "https://github.com/avto-dev"
+        }
+    ],
+    "require": {
+        "php": "^5.6 || ^7.0",
+        "ext-mbstring": "*",
+        "laravel/framework": "~5.4"
+    },
+    "require-dev": {
+        "laravel/laravel": "~5.4",
+        "mockery/mockery": "0.9.*",
+        "phpunit/phpunit": "~5.7 || ^6.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "AvtoDev\\ExtendedLaravelValidator\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "AvtoDev\\ExtendedLaravelValidator\\Tests\\": "tests"
+        }
+    },
+    "support": {
+        "issues": "https://github.com/avto-dev/extended-laravel-validator/issues",
+        "source": "https://github.com/avto-dev/extended-laravel-validator"
+    },
+    "scripts": {
+        "test": "./vendor/bin/phpunit --no-coverage"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "AvtoDev\\ExtendedLaravelValidator\\ExtendedValidatorServiceProvider"
+            ]
+        }
+    },
+    "suggest": {
+        "avto-dev/static-references-laravel": "Required for more thorough values validation"
+    },
+    "config": {
+        "sort-packages": true
+    }
+}

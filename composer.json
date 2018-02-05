@@ -12,10 +12,10 @@
     "require": {
         "php": "^5.6 || ^7.0",
         "ext-mbstring": "*",
-        "laravel/framework": "~5.4"
+        "laravel/framework": "5.4.* || 5.5.*"
     },
     "require-dev": {
-        "laravel/laravel": "~5.4",
+        "laravel/laravel": "5.4.* || 5.5.*",
         "mockery/mockery": "0.9.*",
         "phpunit/phpunit": "~5.7 || ^6.4"
     },

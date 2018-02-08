@@ -12,7 +12,7 @@
     "require": {
         "php": "^5.6 || ^7.0",
         "ext-mbstring": "*",
-        "laravel/framework": "5.4.* || 5.5.*"
+        "laravel/framework": "5.4.* || 5.5.* || 5.6.*"
     },
     "require-dev": {
         "laravel/laravel": "5.4.* || 5.5.* || 5.6.*",

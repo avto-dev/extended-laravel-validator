@@ -51,7 +51,7 @@ class VinCodeValidatorExtension extends AbstractValidatorExtension
                 && preg_match('~[A-Z]~', $uppercase) === 1 // Содержит символы
                 && preg_match('~\d~', $value) === 1 // Содержит числа
                 && ! Str::contains($uppercase, ['I', 'O', 'Q']) // Не содержит запрещенные символы
-                && is_int(Str::substr($uppercase, -4, 4)) // Последние четыре символа обязательно числа
+                && is_numeric(Str::substr($uppercase, -4, 4)) // Последние четыре символа обязательно числа
             );
         }
 

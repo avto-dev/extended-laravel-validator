@@ -1,25 +1,26 @@
-
 <p align="center">
-  <img alt="laravel" src="https://habrastorage.org/webt/hr/6n/nm/hr6nnmgelolxqihsfb-qtp_ncci.png" width="70" height="70" />
+  <img src="https://laravel.com/assets/img/components/logo-laravel.svg" alt="Laravel" width="240" />
 </p>
 
 # Расширенные правила для Laravel-валидатора
 
-![Packagist](https://img.shields.io/packagist/v/avto-dev/extended-laravel-validator.svg?style=flat&maxAge=30)
-[![Build Status](https://scrutinizer-ci.com/g/avto-dev/extended-laravel-validator/badges/build.png?b=master)](https://scrutinizer-ci.com/g/avto-dev/extended-laravel-validator/build-status/master)
-![StyleCI](https://styleci.io/repos/108553281/shield?style=flat&maxAge=30)
-[![Code Coverage](https://scrutinizer-ci.com/g/avto-dev/extended-laravel-validator/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/avto-dev/extended-laravel-validator/?branch=master)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/avto-dev/extended-laravel-validator/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/avto-dev/extended-laravel-validator/?branch=master)
-![GitHub issues](https://img.shields.io/github/issues/avto-dev/extended-laravel-validator.svg?style=flat&maxAge=30)
+[![Version][badge_version]][link_packagist]
+[![Build Status][badge_build_status]][link_build_status]
+![StyleCI][badge_styleci]
+[![Coverage][badge_coverage]][link_coverage]
+[![Quality][badge_quality]][link_coverage]
+[![Issues][badge_issues]][link_issues]
+[![License][badge_license]][link_license]
+[![Downloads][badge_downloads]][link_packagist]
 
-Данный пакет расширяет "стандартные" правила встроенного в **Laravel 5.x** [валидатора][laravel_validation].
+Данный пакет расширяет "стандартные" правила встроенного в **Laravel >=5.5** [валидатора][laravel_validation].
 
 ## Установка
 
 Для установки данного пакета выполните в терминале следующую команду:
 
 ```shell
-$ composer require avto-dev/extended-laravel-validator "1.*"
+$ composer require avto-dev/extended-laravel-validator "^1.0.4"
 ```
 
 > Для этого необходим установленный `composer`. Для его установки перейдите по [данной ссылке][getcomposer].
@@ -70,8 +71,7 @@ $is_valid = $result->fails() === false;
 Для тестирования данного пакета используется фреймворк `phpunit`. Для запуска тестов выполните в терминале:
 
 ```shell
-$ git clone git@github.com:avto-dev/extended-laravel-validator.git
-$ cd ./extended-laravel-validator
+$ git clone git@github.com:avto-dev/extended-laravel-validator.git ./extended-laravel-validator && cd $_
 $ composer update --dev
 $ composer test
 ```
@@ -86,5 +86,18 @@ $ composer test
 
 Код данного пакета распространяется под лицензией **MIT**.
 
+[badge_version]:https://img.shields.io/packagist/v/avto-dev/extended-laravel-validator.svg?style=flat&maxAge=30
+[badge_build_status]:https://scrutinizer-ci.com/g/avto-dev/extended-laravel-validator/badges/build.png?b=master
+[badge_styleci]:https://styleci.io/repos/108553281/shield?style=flat&maxAge=30
+[badge_coverage]:https://scrutinizer-ci.com/g/avto-dev/extended-laravel-validator/badges/coverage.png?b=master
+[badge_license]:https://img.shields.io/packagist/l/avto-dev/extended-laravel-validator.svg?style=flat&maxAge=30
+[badge_quality]:https://scrutinizer-ci.com/g/avto-dev/extended-laravel-validator/badges/quality-score.png?b=master
+[badge_issues]:https://img.shields.io/github/issues/avto-dev/extended-laravel-validator.svg?style=flat&maxAge=30
+[badge_downloads]:https://img.shields.io/packagist/dt/avto-dev/extended-laravel-validator.svg?style=flat&maxAge=30
+[link_packagist]:https://packagist.org/packages/avto-dev/extended-laravel-validator
+[link_build_status]:https://scrutinizer-ci.com/g/avto-dev/extended-laravel-validator/build-status/master
+[link_coverage]:https://scrutinizer-ci.com/g/avto-dev/extended-laravel-validator/?branch=master
+[link_license]:https://github.com/avto-dev/extended-laravel-validator/blob/master/LICENSE
+[link_issues]:https://github.com/avto-dev/extended-laravel-validator/issues
 [getcomposer]:https://getcomposer.org/download/
 [laravel_validation]:https://laravel.com/docs/5.5/validation

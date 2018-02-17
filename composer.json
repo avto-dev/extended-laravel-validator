@@ -1,6 +1,12 @@
 {
     "name": "avto-dev/extended-laravel-validator",
     "description": "Extended validation rules for Laravel applications",
+    "keywords": [
+        "laravel",
+        "validator",
+        "extended",
+        "identity"
+    ],
     "type": "library",
     "license": "MIT",
     "authors": [
@@ -10,14 +16,14 @@
         }
     ],
     "require": {
-        "php": "^5.6 || ^7.0",
+        "php": "^5.6 || >=7.0 <=7.3",
         "ext-mbstring": "*",
-        "laravel/framework": "5.4.* || 5.5.* || 5.6.*"
+        "laravel/framework": ">=5.4.0 <5.7.0"
     },
     "require-dev": {
-        "laravel/laravel": "5.4.* || 5.5.* || 5.6.*",
-        "mockery/mockery": "0.9.*",
-        "phpunit/phpunit": "~5.7 || ^6.4"
+        "laravel/laravel": ">=5.4.0 <5.7.0",
+        "mockery/mockery": "0.9.* || ~1.0",
+        "phpunit/phpunit": "~5.7 || ^6.4 || ~7.0"
     },
     "autoload": {
         "psr-4": {
@@ -45,5 +51,6 @@
     },
     "config": {
         "sort-packages": true
-    }
+    },
+    "prefer-stable": true
 }

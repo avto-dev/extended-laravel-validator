@@ -8,3 +8,6 @@
 .styleci.yml export-ignore
 .scrutinizer.yml export-ignore
 phpunit.xml export-ignore
+README.md export-ignore
+CONTRIBUTING.md export-ignore
+LICENSE export-ignore

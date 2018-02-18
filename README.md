@@ -6,7 +6,7 @@
 
 [![Version][badge_version]][link_packagist]
 [![Build Status][badge_build_status]][link_build_status]
-![StyleCI][badge_styleci]
+[![StyleCI][badge_styleci]][link_styleci]
 [![Coverage][badge_coverage]][link_coverage]
 [![Quality][badge_quality]][link_coverage]
 [![Issues][badge_issues]][link_issues]
@@ -20,7 +20,7 @@
 Для установки данного пакета выполните в терминале следующую команду:
 
 ```shell
-$ composer require avto-dev/extended-laravel-validator "^1.0.4"
+$ composer require avto-dev/extended-laravel-validator "^1.0.5"
 ```
 
 > Для этого необходим установленный `composer`. Для его установки перейдите по [данной ссылке][getcomposer].
@@ -95,6 +95,7 @@ $ composer test
 [badge_issues]:https://img.shields.io/github/issues/avto-dev/extended-laravel-validator.svg?style=flat&maxAge=30
 [badge_downloads]:https://img.shields.io/packagist/dt/avto-dev/extended-laravel-validator.svg?style=flat&maxAge=30
 [link_packagist]:https://packagist.org/packages/avto-dev/extended-laravel-validator
+[link_styleci]:https://styleci.io/repos/108553281
 [link_build_status]:https://scrutinizer-ci.com/g/avto-dev/extended-laravel-validator/build-status/master
 [link_coverage]:https://scrutinizer-ci.com/g/avto-dev/extended-laravel-validator/?branch=master
 [link_license]:https://github.com/avto-dev/extended-laravel-validator/blob/master/LICENSE

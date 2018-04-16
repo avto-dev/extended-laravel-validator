@@ -4,13 +4,6 @@ namespace AvtoDev\ExtendedLaravelValidator;
 
 use Illuminate\Contracts\Validation\Factory as Validator;
 use Illuminate\Support\ServiceProvider as IlluminateServiceProvider;
-use AvtoDev\ExtendedLaravelValidator\Extensions\GrzCodeValidatorExtension;
-use AvtoDev\ExtendedLaravelValidator\Extensions\PtsCodeValidatorExtension;
-use AvtoDev\ExtendedLaravelValidator\Extensions\StsCodeValidatorExtension;
-use AvtoDev\ExtendedLaravelValidator\Extensions\VinCodeValidatorExtension;
-use AvtoDev\ExtendedLaravelValidator\Extensions\BodyCodeValidatorExtension;
-use AvtoDev\ExtendedLaravelValidator\Extensions\ChassisCodeValidatorExtension;
-use AvtoDev\ExtendedLaravelValidator\Extensions\DriverLicenseNumberValidatorExtension;
 
 /**
  * Class ExtendedValidatorServiceProvider.
@@ -61,13 +54,13 @@ class ExtendedValidatorServiceProvider extends IlluminateServiceProvider
     public function getExtensionsClassesNames()
     {
         return [
-            VinCodeValidatorExtension::class,
-            GrzCodeValidatorExtension::class,
-            StsCodeValidatorExtension::class,
-            PtsCodeValidatorExtension::class,
-            BodyCodeValidatorExtension::class,
-            ChassisCodeValidatorExtension::class,
-            DriverLicenseNumberValidatorExtension::class,
+            Extensions\VinCodeValidatorExtension::class,
+            Extensions\GrzCodeValidatorExtension::class,
+            Extensions\StsCodeValidatorExtension::class,
+            Extensions\PtsCodeValidatorExtension::class,
+            Extensions\BodyCodeValidatorExtension::class,
+            Extensions\ChassisCodeValidatorExtension::class,
+            Extensions\DriverLicenseNumberValidatorExtension::class,
         ];
     }
 

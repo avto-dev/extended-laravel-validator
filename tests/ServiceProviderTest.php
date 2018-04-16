@@ -2,8 +2,8 @@
 
 namespace AvtoDev\ExtendedLaravelValidator\Tests;
 
-use AvtoDev\ExtendedLaravelValidator\ExtendedValidatorServiceProvider;
 use ReflectionClass;
+use AvtoDev\ExtendedLaravelValidator\ExtendedValidatorServiceProvider;
 
 /**
  * Class ServiceProviderTest.
@@ -45,7 +45,7 @@ class ServiceProviderTest extends AbstractUnitTestCase
         /** @var \Illuminate\Validation\Factory $laravel_validator */
         $laravel_validator = $this->app->make('validator');
 
-        $reflection = new ReflectionClass(clone $laravel_validator);
+        $reflection          = new ReflectionClass(clone $laravel_validator);
         $reflection_property = $reflection->getProperty('extensions');
         $reflection_property->setAccessible(true);
 

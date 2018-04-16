@@ -2,6 +2,7 @@
 
 namespace AvtoDev\ExtendedLaravelValidator;
 
+use AvtoDev\ExtendedLaravelValidator\Extensions\DriverLicenseNumberValidatorExtension;
 use Illuminate\Contracts\Validation\Factory as Validator;
 use Illuminate\Support\ServiceProvider as IlluminateServiceProvider;
 use AvtoDev\ExtendedLaravelValidator\Extensions\GrzCodeValidatorExtension;
@@ -66,6 +67,7 @@ class ExtendedValidatorServiceProvider extends IlluminateServiceProvider
             PtsCodeValidatorExtension::class,
             BodyCodeValidatorExtension::class,
             ChassisCodeValidatorExtension::class,
+            DriverLicenseNumberValidatorExtension::class,
         ];
     }
 
@@ -89,7 +91,7 @@ class ExtendedValidatorServiceProvider extends IlluminateServiceProvider
     protected function bootExtensions()
     {
         foreach ((array) $this->getExtensionsClassesNames() as $class_name) {
-            array_push($this->extensions, new $class_name);
+            $this->extensions[] = new $class_name;
         }
     }
 

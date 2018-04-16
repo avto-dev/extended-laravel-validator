@@ -34,7 +34,7 @@ class DriverLicenseNumberValidatorExtension extends AbstractValidatorExtension
      */
     public function name()
     {
-        return 'driver_license_code';
+        return 'driver_license_number';
     }
 
     /**

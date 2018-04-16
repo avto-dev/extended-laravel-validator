@@ -58,7 +58,7 @@ class ServiceProviderTest extends AbstractUnitTestCase
                      'pts_code',
                      'body_code',
                      'chassis_code',
-                     'driver_license_code',
+                     'driver_license_number',
                  ] as $extension_name) {
             $this->assertContains($extension_name, $loaded_extensions);
         }

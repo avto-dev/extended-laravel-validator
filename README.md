@@ -48,7 +48,7 @@ $ composer require avto-dev/extended-laravel-validator "^1.1"
 `pts_code` | Номер паспорта транспортного средства (ПТС)
 `body_code` | Номер кузова транспортного средства
 `chassis_code` | Номер шасси транспортного средства
-`driver_license_code` | Номер водительского удостоверения
+`driver_license_number` | Номер водительского удостоверения
 
 Пример использования:
 

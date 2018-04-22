@@ -1,5 +1,10 @@
 # Changelog
 
+## v1.1.2
+
+### Changed
+- Validator rule `driver_license_number` now use **only russians numbers format**
+
 ## v1.1.1
 
 ### Added

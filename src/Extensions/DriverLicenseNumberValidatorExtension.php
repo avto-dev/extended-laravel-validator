@@ -21,8 +21,8 @@ use AvtoDev\ExtendedLaravelValidator\AbstractValidatorExtension;
  * Примеры номеров ВУ:
  *  - 74 14 292010 (РФ)
  *  - 77 16 235662 (РФ)
- *  - 190195-0000 (ЕС)
- *  - 23506/04/2469 (ЕС)
+ *  - 77 АВ 235662 (РФ)
+ *  - 77 CY 235662 (РФ)
  *
  * @see <https://ru.wikipedia.org/wiki/Водительское_удостоверение>
  * @see <https://goo.gl/LL2tLB> Фотография ВУ РФ
@@ -47,37 +47,27 @@ class DriverLicenseNumberValidatorExtension extends AbstractValidatorExtension
 
         // Если значение в стеке уже есть - то просто возвращаем его
         if (! isset($stack[$value])) {
-            // Разрешенные альфа-символы (латиница)
-            static $allowed_alpha = 'A-Z';
+            // Разрешенные символы
+            static $alpha = 'АВЕКМНОРСТУХABEKMHOPCTYX';
 
             // Разрешенные разделители групп номера
-            static $allowed_separators = ' \\-\\/\\\\';
+            static $separators = '\\s';
 
-            // Разрешенные символы (для использования в регулярном выражении)
-            $allowed_chars = "{$allowed_alpha}0-9{$allowed_separators}";
-
-            // Значение в верхнем регистре
+            // Переводим значение в верхний регистр
             $uppercase = Str::upper($value);
 
-            // Удаляем все символы, кроме разрешенных + делаем trim строки
-            $cleared = preg_replace("~[^{$allowed_chars}]~", '', trim($uppercase));
-
-            // Удаляем дублирующиеся разделители
-            $cleared = preg_replace('~\\s+~', ' ', $cleared);
-            $cleared = preg_replace('~\\-+~', '-', $cleared);
-            $cleared = preg_replace('~\\/+~', '/', $cleared);
-            $cleared = preg_replace('~\\\\+~', '\\', $cleared);
+            // Удаляем все символы, кроме разрешенных
+            $cleared = preg_replace("~[^{$alpha}{$separators}\\d]~u", '', $uppercase);
 
             // Вычисляем длину получившейся строки
             $length = Str::length($cleared);
 
             $stack[$value] = (
-                $length >= 10 && $length <= 25 // Проверяем соответствие минимальной и максимальной длине
+                $length >= 10 && $length <= 12 // Проверяем соответствие минимальной и максимальной длине
                 && $uppercase === $cleared // После удаления запрещенных символов - значение не изменилось
                 && ( // Соответствует ли одному из шаблонов
-                    // https://regex101.com/r/6PhPAL/2
                     preg_match(
-                        "~[{$allowed_alpha}\d]{2,4}[{$allowed_alpha}\d{$allowed_separators}]+[{$allowed_alpha}\d]{2,8}~",
+                        "~[\\d]{2}[{$separators}]?([{$alpha}]{2}|\\d{2})[{$separators}]?[\\d]{6}~u",
                         $cleared
                     ) === 1
                 )

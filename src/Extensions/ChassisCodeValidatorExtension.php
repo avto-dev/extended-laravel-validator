@@ -3,8 +3,6 @@
 namespace AvtoDev\ExtendedLaravelValidator\Extensions;
 
 /**
- * Class ChassisCodeValidatorExtension.
- *
  * Правило валидации номера шасси транспортного средства.
  *
  * Конкретные данные о стандарте номера не были найдены на момент написания данных строк.

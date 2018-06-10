@@ -2,9 +2,6 @@
 
 namespace AvtoDev\ExtendedLaravelValidator;
 
-/**
- * Interface ValidationExtensionInterface.
- */
 interface ValidationExtensionInterface
 {
     /**
@@ -29,7 +26,7 @@ interface ValidationExtensionInterface
     public function message();
 
     /**
-     * Возвращает имя правила валидатора.
+     * Get the validation rule name.
      *
      * @return string
      */

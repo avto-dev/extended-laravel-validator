@@ -6,8 +6,6 @@ use Illuminate\Support\Str;
 use AvtoDev\ExtendedLaravelValidator\AbstractValidatorExtension;
 
 /**
- * Class VinCodeValidatorExtension.
- *
  * Правило валидации VIN-кодов.
  *
  * Структура кода основана на стандартах ISO 3779-1983 и ISO 3780.
@@ -43,15 +41,15 @@ class VinCodeValidatorExtension extends AbstractValidatorExtension
             $uppercase = Str::upper($value);
 
             // Удаляем все символы, кроме разрешенных
-            $cleared = preg_replace('~[^0-9ABCDEFGHJKLMNPRSTUVWXYZ]~', '', $uppercase);
+            $cleared = \preg_replace('~[^0-9ABCDEFGHJKLMNPRSTUVWXYZ]~', '', $uppercase);
 
             $stack[$value] = (
                 Str::length($value) === 17 // Длинна соответствует
                 && $uppercase === $cleared // После удаления запрещенных символов - значение не изменилось
-                && preg_match('~[A-Z]~', $uppercase) === 1 // Содержит символы
-                && preg_match('~\d~', $value) === 1 // Содержит числа
+                && \preg_match('~[A-Z]~', $uppercase) === 1 // Содержит символы
+                && \preg_match('~\d~', $value) === 1 // Содержит числа
                 && ! Str::contains($uppercase, ['I', 'O', 'Q']) // Не содержит запрещенные символы
-                && is_numeric(Str::substr($uppercase, -4, 4)) // Последние четыре символа обязательно числа
+                && \is_numeric(Str::substr($uppercase, -4, 4)) // Последние четыре символа обязательно числа
             );
         }
 

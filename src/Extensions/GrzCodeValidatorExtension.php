@@ -6,8 +6,6 @@ use Illuminate\Support\Str;
 use AvtoDev\ExtendedLaravelValidator\AbstractValidatorExtension;
 
 /**
- * Class GrzCodeValidatorExtension.
- *
  * Правило валидации ГРЗ-номеров.
  *
  * "ГОСТ Р 50577-93" для использования на знаках разрешены 12 букв кириллицы, имеющие графические аналоги в
@@ -47,7 +45,7 @@ class GrzCodeValidatorExtension extends AbstractValidatorExtension
             $uppercase = Str::upper($value);
 
             // Удаляем все символы, кроме разрешенных
-            $cleared = preg_replace("~[^0-9{$kyr_chars}]~u", '', $uppercase);
+            $cleared = \preg_replace("~[^0-9{$kyr_chars}]~u", '', $uppercase);
 
             // Вычисляем длину получившейся строки
             $length = Str::length($cleared);
@@ -56,10 +54,10 @@ class GrzCodeValidatorExtension extends AbstractValidatorExtension
                 $length >= 7 && $length <= 9 // Проверяем соответствие минимальной и максимальной длине
                 && $uppercase === $cleared // После удаления запрещенных символов - значение не изменилось
                 && ( // Соответствует ли одному из шаблонов
-                    preg_match("~[{$kyr_chars}]{1}\d{3}[{$kyr_chars}]{2}\d{2,3}~u", $cleared) === 1 // А001АА177
-                    || preg_match("~[{$kyr_chars}]{2}\d{4}\d{2,3}~u", $cleared) === 1 // АА0001177
-                    || preg_match("~\d{4}[{$kyr_chars}]{2}\d{2,3}~u", $cleared) === 1 // 0001АА177
-                    || preg_match("~[{$kyr_chars}]{2}\d{3}\d{2,3}~u", $cleared) === 1 // КМ89840
+                    \preg_match("~[{$kyr_chars}]{1}\d{3}[{$kyr_chars}]{2}\d{2,3}~u", $cleared) === 1 // А001АА177
+                    || \preg_match("~[{$kyr_chars}]{2}\d{4}\d{2,3}~u", $cleared) === 1 // АА0001177
+                    || \preg_match("~\d{4}[{$kyr_chars}]{2}\d{2,3}~u", $cleared) === 1 // 0001АА177
+                    || \preg_match("~[{$kyr_chars}]{2}\d{3}\d{2,3}~u", $cleared) === 1 // КМ89840
                 )
             );
         }

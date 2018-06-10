@@ -4,9 +4,6 @@ namespace AvtoDev\ExtendedLaravelValidator\Tests\Extensions;
 
 use AvtoDev\ExtendedLaravelValidator\Extensions\BodyCodeValidatorExtension;
 
-/**
- * Class BodyCodeValidatorExtensionTest.
- */
 class BodyCodeValidatorExtensionTest extends AbstractExtensionTestCase
 {
     /**

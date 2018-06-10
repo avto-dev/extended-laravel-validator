@@ -6,8 +6,6 @@ use Illuminate\Support\Str;
 use AvtoDev\ExtendedLaravelValidator\AbstractValidatorExtension;
 
 /**
- * Class DriverLicenseNumberValidatorExtension.
- *
  * Правило валидации номеров водительских удостоверений (ВУ).
  *
  * "Все записи в удостоверении должны выполняться буквами латинского алфавита или транслитерированы латиницей" (с) Вики
@@ -57,7 +55,7 @@ class DriverLicenseNumberValidatorExtension extends AbstractValidatorExtension
             $uppercase = Str::upper($value);
 
             // Удаляем все символы, кроме разрешенных
-            $cleared = preg_replace("~[^{$alpha}{$separators}\\d]~u", '', $uppercase);
+            $cleared = \preg_replace("~[^{$alpha}{$separators}\\d]~u", '', $uppercase);
 
             // Вычисляем длину получившейся строки
             $length = Str::length($cleared);
@@ -66,7 +64,7 @@ class DriverLicenseNumberValidatorExtension extends AbstractValidatorExtension
                 $length >= 10 && $length <= 12 // Проверяем соответствие минимальной и максимальной длине
                 && $uppercase === $cleared // После удаления запрещенных символов - значение не изменилось
                 && ( // Соответствует ли одному из шаблонов
-                    preg_match(
+                    \preg_match(
                         "~[\\d]{2}[{$separators}]?([{$alpha}]{2}|\\d{2})[{$separators}]?[\\d]{6}~u",
                         $cleared
                     ) === 1

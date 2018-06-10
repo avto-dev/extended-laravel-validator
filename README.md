@@ -13,7 +13,7 @@
 [![License][badge_license]][link_license]
 [![Downloads][badge_downloads]][link_packagist]
 
-Данный пакет расширяет "стандартные" правила встроенного в **Laravel >=5.5** [валидатора][laravel_validation].
+Данный пакет расширяет "стандартные" правила встроенного в Laravel [валидатора][laravel_validation].
 
 ## Установка
 

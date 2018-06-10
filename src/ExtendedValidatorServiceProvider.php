@@ -5,18 +5,9 @@ namespace AvtoDev\ExtendedLaravelValidator;
 use Illuminate\Contracts\Validation\Factory as Validator;
 use Illuminate\Support\ServiceProvider as IlluminateServiceProvider;
 
-/**
- * Class ExtendedValidatorServiceProvider.
- *
- * Сервис-провайдер, расширяющий правила валидации Laravel-валидатора.
- */
 class ExtendedValidatorServiceProvider extends IlluminateServiceProvider
 {
-    /**
-     * Алиас, который биндится в DI, и по которому понимаем, что сервис-провайдер был успешно загружен.
-     */
-    const
-        SERVICE_PROVIDER_REGISTERED_ABSTRACT = 'extended-laravel-validator.registered';
+    const SERVICE_PROVIDER_REGISTERED_ABSTRACT = 'extended-laravel-validator.registered';
 
     /**
      * Стек инстансов расширений валидатора.
@@ -43,6 +34,7 @@ class ExtendedValidatorServiceProvider extends IlluminateServiceProvider
     public function boot()
     {
         $this->bootExtensions();
+
         $this->registerExtensions();
     }
 

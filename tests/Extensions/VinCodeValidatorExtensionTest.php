@@ -4,9 +4,6 @@ namespace AvtoDev\ExtendedLaravelValidator\Tests\Extensions;
 
 use AvtoDev\ExtendedLaravelValidator\Extensions\VinCodeValidatorExtension;
 
-/**
- * Class VinCodeValidatorExtensionTest.
- */
 class VinCodeValidatorExtensionTest extends AbstractExtensionTestCase
 {
     /**

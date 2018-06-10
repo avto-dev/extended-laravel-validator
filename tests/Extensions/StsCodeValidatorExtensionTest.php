@@ -4,9 +4,6 @@ namespace AvtoDev\ExtendedLaravelValidator\Tests\Extensions;
 
 use AvtoDev\ExtendedLaravelValidator\Extensions\StsCodeValidatorExtension;
 
-/**
- * Class StsCodeValidatorExtensionTest.
- */
 class StsCodeValidatorExtensionTest extends AbstractExtensionTestCase
 {
     /**

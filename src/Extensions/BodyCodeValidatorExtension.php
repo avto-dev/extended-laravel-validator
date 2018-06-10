@@ -6,8 +6,6 @@ use Illuminate\Support\Str;
 use AvtoDev\ExtendedLaravelValidator\AbstractValidatorExtension;
 
 /**
- * Class BodyCodeValidatorExtension.
- *
  * Правило валидации номера кузова транспортного средства.
  *
  * Конкретные данные о стандарте номера не были найдены на момент написания данных строк.
@@ -45,9 +43,9 @@ class BodyCodeValidatorExtension extends AbstractValidatorExtension
 
             $stack[$value] = (
                 $length >= 7 && $length <= 15 // Проверяем соответствие минимальной и максимальной длине
-                && preg_match('~\d~', $value) === 1 // Содержит числа
+                && \preg_match('~\d~', $value) === 1 // Содержит числа
                 // Соответствует ли шаблону
-                && preg_match("~^[{$kyr_chars}A-Z\d]{2,}(\-|\s|)[{$kyr_chars}A-Z\d]{2,9}$~u", $uppercase) === 1
+                && \preg_match("~^[{$kyr_chars}A-Z\d]{2,}(\-|\s|)[{$kyr_chars}A-Z\d]{2,9}$~u", $uppercase) === 1
             );
         }
 

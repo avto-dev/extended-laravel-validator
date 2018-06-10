@@ -8,9 +8,6 @@ use Illuminate\Contracts\Validation\Factory as Validator;
 use Illuminate\Foundation\Testing\TestCase as BaseTestCase;
 use AvtoDev\ExtendedLaravelValidator\ExtendedValidatorServiceProvider;
 
-/**
- * Class AbstractUnitTestCase.
- */
 abstract class AbstractUnitTestCase extends BaseTestCase
 {
     /**

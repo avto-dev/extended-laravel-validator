@@ -5,11 +5,6 @@ namespace AvtoDev\ExtendedLaravelValidator\Tests;
 use ReflectionClass;
 use AvtoDev\ExtendedLaravelValidator\ExtendedValidatorServiceProvider;
 
-/**
- * Class ServiceProviderTest.
- *
- * Тесты сервис-провайдера.
- */
 class ServiceProviderTest extends AbstractUnitTestCase
 {
     /**
@@ -37,6 +32,8 @@ class ServiceProviderTest extends AbstractUnitTestCase
 
     /**
      * Тест того, что необходимые правила валидатора были зарегистрированы.
+     *
+     * @throws \ReflectionException
      *
      * @return void
      */

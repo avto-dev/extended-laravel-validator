@@ -3,8 +3,6 @@
 namespace AvtoDev\ExtendedLaravelValidator\Extensions;
 
 /**
- * Class PtsCodeValidatorExtension.
- *
  * Правило валидации номера паспорта транспортного средства (ПТС).
  *
  * По всей видимости правило валидации аналогичное правилу валидации номера СТС.

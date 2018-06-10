@@ -4,9 +4,6 @@ namespace AvtoDev\ExtendedLaravelValidator\Tests\Extensions;
 
 use AvtoDev\ExtendedLaravelValidator\Extensions\GrzCodeValidatorExtension;
 
-/**
- * Class GrzCodeValidatorExtensionTest.
- */
 class GrzCodeValidatorExtensionTest extends AbstractExtensionTestCase
 {
     /**

@@ -2,11 +2,6 @@
 
 namespace AvtoDev\ExtendedLaravelValidator;
 
-use Illuminate\Support\Str;
-
-/**
- * Class AbstractValidatorExtension.
- */
 abstract class AbstractValidatorExtension implements ValidationExtensionInterface
 {
     /**
@@ -24,6 +19,6 @@ abstract class AbstractValidatorExtension implements ValidationExtensionInterfac
      */
     public function message()
     {
-        return sprintf('This is not valid "%s"', Str::camel($this->name()));
+        return "This is not valid [{$this->name()}]";
     }
 }

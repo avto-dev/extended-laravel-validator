@@ -5,9 +5,6 @@ namespace AvtoDev\ExtendedLaravelValidator\Tests\Extensions;
 use AvtoDev\ExtendedLaravelValidator\AbstractValidatorExtension;
 use AvtoDev\ExtendedLaravelValidator\Tests\AbstractUnitTestCase;
 
-/**
- * Class AbstractExtensionTestCase.
- */
 abstract class AbstractExtensionTestCase extends AbstractUnitTestCase
 {
     /**

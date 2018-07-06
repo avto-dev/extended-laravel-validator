@@ -7,7 +7,25 @@ use Illuminate\Support\ServiceProvider as IlluminateServiceProvider;
 
 class ExtendedValidatorServiceProvider extends IlluminateServiceProvider
 {
-    const SERVICE_PROVIDER_REGISTERED_ABSTRACT = 'extended-laravel-validator.registered';
+    /**
+     * Get config root key name.
+     *
+     * @return string
+     */
+    public static function getConfigRootKeyName()
+    {
+        return \basename(static::getConfigPath(), '.php');
+    }
+
+    /**
+     * Returns path to the configuration file.
+     *
+     * @return string
+     */
+    public static function getConfigPath()
+    {
+        return __DIR__ . '/config/extended-laravel-validator.php';
+    }
 
     /**
      * Стек инстансов расширений валидатора.
@@ -15,16 +33,6 @@ class ExtendedValidatorServiceProvider extends IlluminateServiceProvider
      * @var ValidationExtensionInterface[]
      */
     protected $extensions = [];
-
-    /**
-     * Register any application services.
-     *
-     * @return void
-     */
-    public function register()
-    {
-        $this->app->instance(self::SERVICE_PROVIDER_REGISTERED_ABSTRACT, true);
-    }
 
     /**
      * Bootstrap any application services.
@@ -39,13 +47,23 @@ class ExtendedValidatorServiceProvider extends IlluminateServiceProvider
     }
 
     /**
+     * Register package services.
+     *
+     * @return void
+     */
+    public function register()
+    {
+        $this->initializeConfigs();
+    }
+
+    /**
      * Возвращает массив имен классов расширений валидатора, подлежащих загрузке.
      *
      * @return string[]
      */
     public function getExtensionsClassesNames()
     {
-        return [
+        return array_replace([
             Extensions\VinCodeValidatorExtension::class,
             Extensions\GrzCodeValidatorExtension::class,
             Extensions\StsCodeValidatorExtension::class,
@@ -53,7 +71,33 @@ class ExtendedValidatorServiceProvider extends IlluminateServiceProvider
             Extensions\BodyCodeValidatorExtension::class,
             Extensions\ChassisCodeValidatorExtension::class,
             Extensions\DriverLicenseNumberValidatorExtension::class,
-        ];
+        ], $this->getConfigExtensionsClassesNames());
+    }
+
+    /**
+     * Get an extensions classes names, declared in configuration file.
+     *
+     * @return string[]|array
+     */
+    public function getConfigExtensionsClassesNames()
+    {
+        return (array) $this->app->make('config')->get(
+            sprintf('%s.extensions', static::getConfigRootKeyName())
+        );
+    }
+
+    /**
+     * Initialize configs.
+     *
+     * @return void
+     */
+    protected function initializeConfigs()
+    {
+        $this->mergeConfigFrom(static::getConfigPath(), static::getConfigRootKeyName());
+
+        $this->publishes([
+            \realpath(static::getConfigPath()) => config_path(\basename(static::getConfigPath())),
+        ], 'config');
     }
 
     /**

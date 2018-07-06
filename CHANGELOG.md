@@ -1,14 +1,27 @@
 # Changelog
 
+All notable changes to this project will be documented in this file.
+
+The format is based on [Keep a Changelog][keepachangelog] and this project adheres to [Semantic Versioning][semver].
+
 ## v2.0.0
+
+### Added
+
+- Package config file. That can extends package validator extensions.
 
 ### Changed
 
-- `grz` codes now follows `ГОСТ Р 50577-93` (be careful - this changes can break your previous code)
+- `grz_code` extension now follows `ГОСТ Р 50577-93` excepts "transit" and "diplomatic" numbers formats (be careful - this changes can break your previous code)
 
 ### Fixed
 
-- `body_code`, `driver_license_number` and `sts_code` a little bit fixed
+- `body_code`, `driver_license_number` and `sts_code` regular expressions (added `i` modifier)
+
+### Removed
+
+- Constant `SERVICE_PROVIDER_REGISTERED_ABSTRACT` from `ExtendedValidatorServiceProvider`
+- Laravel DI instance `extended-laravel-validator.registered`
 
 ## v1.2.0
 
@@ -36,3 +49,6 @@
 ### Added
 
 - Validator rule `driver_license_number`
+
+[keepachangelog]:https://keepachangelog.com/en/1.0.0/
+[semver]:https://semver.org/spec/v2.0.0.html

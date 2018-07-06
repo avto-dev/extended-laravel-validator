@@ -35,6 +35,12 @@ $ composer require avto-dev/extended-laravel-validator "^2.0"
 ]
 ```
 
+После этого вы можете опубликовать конфигурационный файл пакета с помощью следующей команды:
+
+```shell
+$ ./artisan vendor:publish --provider="AvtoDev\ExtendedLaravelValidator\ExtendedValidatorServiceProvider"
+```
+
 ## Использование
 
 Данный пакет позволяет использовать следующие правила [валидатора][laravel_validation]:
@@ -65,6 +71,8 @@ $result = $validator->make([
 
 $is_valid = $result->fails() === false;
 ```
+
+> Опционально вы можете в конфигурационном файле указать дополнительные расширения валидатора, которые вам необходимы.
 
 ### Testing
 

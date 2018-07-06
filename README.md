@@ -2,6 +2,8 @@
   <img src="https://laravel.com/assets/img/components/logo-laravel.svg" alt="Laravel" width="240" />
 </p>
 
+> This version is outdated and no longer supported.
+
 # Расширенные правила для Laravel-валидатора
 
 [![Version][badge_version]][link_packagist]
@@ -20,7 +22,7 @@
 Для установки данного пакета выполните в терминале следующую команду:
 
 ```shell
-$ composer require avto-dev/extended-laravel-validator "^1.1"
+$ composer require avto-dev/extended-laravel-validator "^1.2"
 ```
 
 > Для этого необходим установленный `composer`. Для его установки перейдите по [данной ссылке][getcomposer].

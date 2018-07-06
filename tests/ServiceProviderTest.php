@@ -3,9 +3,9 @@
 namespace AvtoDev\ExtendedLaravelValidator\Tests;
 
 use Mockery as m;
+use ReflectionClass;
 use AvtoDev\ExtendedLaravelValidator\ExtendedValidatorServiceProvider;
 use AvtoDev\ExtendedLaravelValidator\Tests\Extensions\Stubs\ExtensionStub;
-use ReflectionClass;
 
 class ServiceProviderTest extends AbstractUnitTestCase
 {
@@ -33,7 +33,7 @@ class ServiceProviderTest extends AbstractUnitTestCase
         /** @var \Illuminate\Validation\Factory $laravel_validator */
         $laravel_validator = $this->app->make('validator');
 
-        $reflection = new ReflectionClass(clone $laravel_validator);
+        $reflection          = new ReflectionClass(clone $laravel_validator);
         $reflection_property = $reflection->getProperty('extensions');
         $reflection_property->setAccessible(true);
 
@@ -99,7 +99,7 @@ class ServiceProviderTest extends AbstractUnitTestCase
 
         $mock->shouldReceive($what)->once()->andReturn([ExtensionStub::class]);
 
-        /** @var ExtendedValidatorServiceProvider $mock */
+        /* @var ExtendedValidatorServiceProvider $mock */
         $this->assertContains(ExtensionStub::class, $mock->getExtensionsClassesNames());
     }
 }

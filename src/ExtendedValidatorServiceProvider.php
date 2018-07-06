@@ -8,6 +8,13 @@ use Illuminate\Support\ServiceProvider as IlluminateServiceProvider;
 class ExtendedValidatorServiceProvider extends IlluminateServiceProvider
 {
     /**
+     * Стек инстансов расширений валидатора.
+     *
+     * @var ValidationExtensionInterface[]
+     */
+    protected $extensions = [];
+
+    /**
      * Get config root key name.
      *
      * @return string
@@ -26,13 +33,6 @@ class ExtendedValidatorServiceProvider extends IlluminateServiceProvider
     {
         return __DIR__ . '/config/extended-laravel-validator.php';
     }
-
-    /**
-     * Стек инстансов расширений валидатора.
-     *
-     * @var ValidationExtensionInterface[]
-     */
-    protected $extensions = [];
 
     /**
      * Bootstrap any application services.

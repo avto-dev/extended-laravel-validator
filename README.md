@@ -19,7 +19,7 @@
 Для установки данного пакета выполните в терминале следующую команду:
 
 ```shell
-$ composer require avto-dev/extended-laravel-validator "^1.1"
+$ composer require avto-dev/extended-laravel-validator "^2.0"
 ```
 
 > Для этого необходим установленный `composer`. Для его установки перейдите по [данной ссылке][getcomposer].

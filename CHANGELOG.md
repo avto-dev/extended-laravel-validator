@@ -1,5 +1,15 @@
 # Changelog
 
+## v2.1.0
+
+### Changed
+
+- `grz` codes now follows `ГОСТ Р 50577-93` (be careful - this changes can break your previous code)
+
+### Fixed
+
+- `body_code`, `driver_license_number` and `sts_code` a little bit fixed
+
 ## v1.2.0
 
 ### Changed

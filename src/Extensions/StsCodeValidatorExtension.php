@@ -47,7 +47,7 @@ class StsCodeValidatorExtension extends AbstractValidatorExtension
             $stack[$value] = (
                 $length >= 10 && $length <= 12 // Проверяем соответствие минимальной и максимальной длине
                 // Соответствует ли шаблону
-                && \preg_match("~^\d{2}(\s|)([{$kyr_chars}]{2}|\d{2})(\s|)\d{6}$~u", $uppercase) === 1
+                && \preg_match("~^\d{2}(\s|)([{$kyr_chars}]{2}|\d{2})(\s|)\d{6}$~iu", $uppercase) === 1
             );
         }
 

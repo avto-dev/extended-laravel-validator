@@ -65,7 +65,7 @@ class DriverLicenseNumberValidatorExtension extends AbstractValidatorExtension
                 && $uppercase === $cleared // После удаления запрещенных символов - значение не изменилось
                 && ( // Соответствует ли одному из шаблонов
                     \preg_match(
-                        "~[\\d]{2}[{$separators}]?([{$alpha}]{2}|\\d{2})[{$separators}]?[\\d]{6}~u",
+                        "~^[\\d]{2}[{$separators}]?([{$alpha}]{2}|\\d{2})[{$separators}]?[\\d]{6}$~iu",
                         $cleared
                     ) === 1
                 )

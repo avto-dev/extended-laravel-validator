@@ -50,6 +50,7 @@ $ ./artisan vendor:publish --provider="AvtoDev\ExtendedLaravelValidator\Extended
 `body_code` | Номер кузова транспортного средства
 `chassis_code` | Номер шасси транспортного средства
 `driver_license_number` | Номер водительского удостоверения
+`cadastral_number` | Кадастровый номер (уникальный номер объекта недвижимости)
 
 Пример использования:
 

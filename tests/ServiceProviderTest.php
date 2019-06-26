@@ -47,6 +47,7 @@ class ServiceProviderTest extends AbstractUnitTestCase
             'body_code',
             'chassis_code',
             'driver_license_number',
+            'cadastral_number',
         ];
 
         foreach ($extensions_names as $extension_name) {

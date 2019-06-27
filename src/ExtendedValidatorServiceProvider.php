@@ -71,6 +71,7 @@ class ExtendedValidatorServiceProvider extends IlluminateServiceProvider
             Extensions\BodyCodeValidatorExtension::class,
             Extensions\ChassisCodeValidatorExtension::class,
             Extensions\DriverLicenseNumberValidatorExtension::class,
+            Extensions\CadastralNumberValidatorExtension::class,
         ], $this->getConfigExtensionsClassesNames());
     }
 

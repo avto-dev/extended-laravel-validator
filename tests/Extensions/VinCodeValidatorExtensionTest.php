@@ -13,7 +13,7 @@ use AvtoDev\ExtendedLaravelValidator\Extensions\VinCodeValidatorExtension;
 class VinCodeValidatorExtensionTest extends AbstractExtensionTestCase
 {
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     protected function getExtensionClassName(): string
     {
@@ -21,7 +21,7 @@ class VinCodeValidatorExtensionTest extends AbstractExtensionTestCase
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     protected function getInvalidValues(): array
     {
@@ -96,7 +96,7 @@ class VinCodeValidatorExtensionTest extends AbstractExtensionTestCase
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     protected function getValidValues(): array
     {

@@ -20,7 +20,7 @@ use AvtoDev\ExtendedLaravelValidator\AbstractValidatorExtension;
 class StsCodeValidatorExtension extends AbstractValidatorExtension
 {
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function name(): string
     {
@@ -28,7 +28,7 @@ class StsCodeValidatorExtension extends AbstractValidatorExtension
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function passes(string $attribute, $value): bool
     {

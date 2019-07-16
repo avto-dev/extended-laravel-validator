@@ -14,7 +14,7 @@ namespace AvtoDev\ExtendedLaravelValidator\Extensions;
 class PtsCodeValidatorExtension extends StsCodeValidatorExtension
 {
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function name(): string
     {

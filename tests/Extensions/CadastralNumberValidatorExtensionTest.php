@@ -13,7 +13,7 @@ use AvtoDev\ExtendedLaravelValidator\Extensions\CadastralNumberValidatorExtensio
 class CadastralNumberValidatorExtensionTest extends AbstractExtensionTestCase
 {
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     protected function getExtensionClassName(): string
     {
@@ -21,7 +21,7 @@ class CadastralNumberValidatorExtensionTest extends AbstractExtensionTestCase
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     protected function getInvalidValues(): array
     {
@@ -59,7 +59,7 @@ class CadastralNumberValidatorExtensionTest extends AbstractExtensionTestCase
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     protected function getValidValues(): array
     {

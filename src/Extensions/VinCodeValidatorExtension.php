@@ -22,7 +22,7 @@ use AvtoDev\ExtendedLaravelValidator\AbstractValidatorExtension;
 class VinCodeValidatorExtension extends AbstractValidatorExtension
 {
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function name(): string
     {
@@ -30,7 +30,7 @@ class VinCodeValidatorExtension extends AbstractValidatorExtension
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function passes(string $attribute, $value): bool
     {

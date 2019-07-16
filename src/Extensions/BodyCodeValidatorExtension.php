@@ -17,7 +17,7 @@ use AvtoDev\ExtendedLaravelValidator\AbstractValidatorExtension;
 class BodyCodeValidatorExtension extends AbstractValidatorExtension
 {
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function name(): string
     {
@@ -25,7 +25,7 @@ class BodyCodeValidatorExtension extends AbstractValidatorExtension
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function passes(string $attribute, $value): bool
     {

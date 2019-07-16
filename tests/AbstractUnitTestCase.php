@@ -6,9 +6,9 @@ namespace AvtoDev\ExtendedLaravelValidator\Tests;
 
 use Illuminate\Foundation\Application;
 use Illuminate\Contracts\Console\Kernel;
+use AvtoDev\ExtendedLaravelValidator\ServiceProvider;
 use Illuminate\Contracts\Validation\Factory as Validator;
 use Illuminate\Foundation\Testing\TestCase as BaseTestCase;
-use AvtoDev\ExtendedLaravelValidator\ServiceProvider;
 
 abstract class AbstractUnitTestCase extends BaseTestCase
 {

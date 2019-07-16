@@ -13,7 +13,7 @@ use AvtoDev\ExtendedLaravelValidator\Extensions\PtsCodeValidatorExtension;
 class PtsCodeValidatorExtensionTest extends StsCodeValidatorExtensionTest
 {
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     protected function getExtensionClassName(): string
     {

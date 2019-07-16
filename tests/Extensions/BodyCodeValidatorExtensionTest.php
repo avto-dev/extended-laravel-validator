@@ -13,7 +13,7 @@ use AvtoDev\ExtendedLaravelValidator\Extensions\BodyCodeValidatorExtension;
 class BodyCodeValidatorExtensionTest extends AbstractExtensionTestCase
 {
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     protected function getExtensionClassName(): string
     {
@@ -21,7 +21,7 @@ class BodyCodeValidatorExtensionTest extends AbstractExtensionTestCase
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     protected function getInvalidValues(): array
     {
@@ -76,7 +76,7 @@ class BodyCodeValidatorExtensionTest extends AbstractExtensionTestCase
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     protected function getValidValues(): array
     {

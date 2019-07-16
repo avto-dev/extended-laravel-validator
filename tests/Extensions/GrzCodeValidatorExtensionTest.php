@@ -13,7 +13,7 @@ use AvtoDev\ExtendedLaravelValidator\Extensions\GrzCodeValidatorExtension;
 class GrzCodeValidatorExtensionTest extends AbstractExtensionTestCase
 {
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     protected function getExtensionClassName(): string
     {
@@ -21,7 +21,7 @@ class GrzCodeValidatorExtensionTest extends AbstractExtensionTestCase
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     protected function getInvalidValues(): array
     {
@@ -71,7 +71,7 @@ class GrzCodeValidatorExtensionTest extends AbstractExtensionTestCase
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     protected function getValidValues(): array
     {

@@ -7,7 +7,7 @@ namespace AvtoDev\ExtendedLaravelValidator;
 abstract class AbstractValidatorExtension implements ValidationExtensionInterface
 {
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function message(): string
     {

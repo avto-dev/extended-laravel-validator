@@ -15,7 +15,7 @@ abstract class AbstractExtensionTestCase extends AbstractUnitTestCase
     protected $instance;
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     protected function setUp(): void
     {
@@ -27,7 +27,7 @@ abstract class AbstractExtensionTestCase extends AbstractUnitTestCase
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     protected function tearDown(): void
     {

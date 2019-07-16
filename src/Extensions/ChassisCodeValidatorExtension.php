@@ -16,7 +16,7 @@ namespace AvtoDev\ExtendedLaravelValidator\Extensions;
 class ChassisCodeValidatorExtension extends BodyCodeValidatorExtension
 {
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function name(): string
     {

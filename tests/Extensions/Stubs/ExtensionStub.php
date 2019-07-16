@@ -7,7 +7,7 @@ use AvtoDev\ExtendedLaravelValidator\AbstractValidatorExtension;
 class ExtensionStub extends AbstractValidatorExtension
 {
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function name()
     {
@@ -15,7 +15,7 @@ class ExtensionStub extends AbstractValidatorExtension
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function passes($attribute, $value)
     {

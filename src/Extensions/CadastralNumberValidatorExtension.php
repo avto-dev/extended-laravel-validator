@@ -33,7 +33,7 @@ use AvtoDev\ExtendedLaravelValidator\AbstractValidatorExtension;
 class CadastralNumberValidatorExtension extends AbstractValidatorExtension
 {
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function name(): string
     {
@@ -41,7 +41,7 @@ class CadastralNumberValidatorExtension extends AbstractValidatorExtension
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function passes(string $attribute, $value): bool
     {

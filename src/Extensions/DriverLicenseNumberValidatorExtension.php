@@ -30,7 +30,7 @@ use AvtoDev\ExtendedLaravelValidator\AbstractValidatorExtension;
 class DriverLicenseNumberValidatorExtension extends AbstractValidatorExtension
 {
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function name(): string
     {
@@ -38,7 +38,7 @@ class DriverLicenseNumberValidatorExtension extends AbstractValidatorExtension
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function passes(string $attribute, $value): bool
     {

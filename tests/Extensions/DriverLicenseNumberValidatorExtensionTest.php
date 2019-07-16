@@ -13,7 +13,7 @@ use AvtoDev\ExtendedLaravelValidator\Extensions\DriverLicenseNumberValidatorExte
 class DriverLicenseNumberValidatorExtensionTest extends AbstractExtensionTestCase
 {
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     protected function getExtensionClassName(): string
     {
@@ -21,7 +21,7 @@ class DriverLicenseNumberValidatorExtensionTest extends AbstractExtensionTestCas
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     protected function getInvalidValues(): array
     {
@@ -97,7 +97,7 @@ class DriverLicenseNumberValidatorExtensionTest extends AbstractExtensionTestCas
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     protected function getValidValues(): array
     {

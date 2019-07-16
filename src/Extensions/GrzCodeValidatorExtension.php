@@ -44,7 +44,7 @@ use AvtoDev\ExtendedLaravelValidator\AbstractValidatorExtension;
 class GrzCodeValidatorExtension extends AbstractValidatorExtension
 {
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function name(): string
     {
@@ -52,7 +52,7 @@ class GrzCodeValidatorExtension extends AbstractValidatorExtension
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function passes(string $attribute, $value): bool
     {

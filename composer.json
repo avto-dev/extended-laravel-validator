@@ -5,7 +5,7 @@
         "laravel",
         "validator",
         "extended",
-        "identity"
+        "rules"
     ],
     "type": "library",
     "license": "MIT",

@@ -1,18 +1,21 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace AvtoDev\ExtendedLaravelValidator\Tests\Extensions;
 
 use AvtoDev\ExtendedLaravelValidator\Extensions\PtsCodeValidatorExtension;
 
 /**
- * Так как метод валидации номера ПТС аналогичен методу валидации СТС - то наследуемся от его класса.
+ * @covers \AvtoDev\ExtendedLaravelValidator\Extensions\PtsCodeValidatorExtension<extended>
+ * @covers \AvtoDev\ExtendedLaravelValidator\ServiceProvider::boot
  */
 class PtsCodeValidatorExtensionTest extends StsCodeValidatorExtensionTest
 {
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
-    protected function getExtensionClassName()
+    protected function getExtensionClassName(): string
     {
         return PtsCodeValidatorExtension::class;
     }

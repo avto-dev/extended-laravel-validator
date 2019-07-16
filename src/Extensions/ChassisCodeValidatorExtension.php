@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace AvtoDev\ExtendedLaravelValidator\Extensions;
 
 /**
@@ -14,9 +16,9 @@ namespace AvtoDev\ExtendedLaravelValidator\Extensions;
 class ChassisCodeValidatorExtension extends BodyCodeValidatorExtension
 {
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
-    public function name()
+    public function name(): string
     {
         return 'chassis_code';
     }

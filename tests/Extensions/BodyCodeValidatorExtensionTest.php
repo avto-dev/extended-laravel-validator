@@ -1,23 +1,29 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace AvtoDev\ExtendedLaravelValidator\Tests\Extensions;
 
 use AvtoDev\ExtendedLaravelValidator\Extensions\BodyCodeValidatorExtension;
 
+/**
+ * @covers \AvtoDev\ExtendedLaravelValidator\Extensions\BodyCodeValidatorExtension<extended>
+ * @covers \AvtoDev\ExtendedLaravelValidator\ServiceProvider::boot
+ */
 class BodyCodeValidatorExtensionTest extends AbstractExtensionTestCase
 {
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
-    protected function getExtensionClassName()
+    protected function getExtensionClassName(): string
     {
         return BodyCodeValidatorExtension::class;
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
-    protected function getInvalidValues()
+    protected function getInvalidValues(): array
     {
         return [
             // Слишком длинные
@@ -70,9 +76,9 @@ class BodyCodeValidatorExtensionTest extends AbstractExtensionTestCase
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
-    protected function getValidValues()
+    protected function getValidValues(): array
     {
         return [
             '0685251',

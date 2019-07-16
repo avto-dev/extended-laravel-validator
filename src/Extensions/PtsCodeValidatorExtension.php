@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace AvtoDev\ExtendedLaravelValidator\Extensions;
 
 /**
@@ -12,9 +14,9 @@ namespace AvtoDev\ExtendedLaravelValidator\Extensions;
 class PtsCodeValidatorExtension extends StsCodeValidatorExtension
 {
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
-    public function name()
+    public function name(): string
     {
         return 'pts_code';
     }

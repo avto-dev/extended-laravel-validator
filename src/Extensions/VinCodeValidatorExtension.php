@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace AvtoDev\ExtendedLaravelValidator\Extensions;
 
 use Illuminate\Support\Str;
@@ -20,17 +22,17 @@ use AvtoDev\ExtendedLaravelValidator\AbstractValidatorExtension;
 class VinCodeValidatorExtension extends AbstractValidatorExtension
 {
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
-    public function name()
+    public function name(): string
     {
         return 'vin_code';
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
-    public function passes($attribute, $value)
+    public function passes(string $attribute, $value): bool
     {
         // Статический стек для хранения результатов валидации (для быстродействия)
         static $stack = [];

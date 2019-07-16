@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace AvtoDev\ExtendedLaravelValidator\Extensions;
 
 use Illuminate\Support\Str;
@@ -28,17 +30,17 @@ use AvtoDev\ExtendedLaravelValidator\AbstractValidatorExtension;
 class DriverLicenseNumberValidatorExtension extends AbstractValidatorExtension
 {
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
-    public function name()
+    public function name(): string
     {
         return 'driver_license_number';
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
-    public function passes($attribute, $value)
+    public function passes(string $attribute, $value): bool
     {
         // Статический стек для хранения результатов валидации (для быстродействия)
         static $stack = [];
@@ -55,7 +57,7 @@ class DriverLicenseNumberValidatorExtension extends AbstractValidatorExtension
             $uppercase = Str::upper($value);
 
             // Удаляем все символы, кроме разрешенных
-            $cleared = \preg_replace("~[^{$alpha}{$separators}\\d]~u", '', $uppercase);
+            $cleared = (string) \preg_replace("~[^{$alpha}{$separators}\\d]~u", '', $uppercase);
 
             // Вычисляем длину получившейся строки
             $length = Str::length($cleared);

@@ -1,12 +1,17 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace AvtoDev\ExtendedLaravelValidator\Tests;
 
 use Mockery as m;
 use ReflectionClass;
-use AvtoDev\ExtendedLaravelValidator\ExtendedValidatorServiceProvider;
+use AvtoDev\ExtendedLaravelValidator\ServiceProvider;
 use AvtoDev\ExtendedLaravelValidator\Tests\Extensions\Stubs\ExtensionStub;
 
+/**
+ * @covers \AvtoDev\ExtendedLaravelValidator\ServiceProvider
+ */
 class ServiceProviderTest extends AbstractUnitTestCase
 {
     /**
@@ -14,11 +19,11 @@ class ServiceProviderTest extends AbstractUnitTestCase
      *
      * @return void
      */
-    public function testServiceProviderRegistered()
+    public function testServiceProviderRegistered(): void
     {
         $loaded_providers = $this->app->getLoadedProviders();
 
-        $this->assertContains(ExtendedValidatorServiceProvider::class, \array_keys($loaded_providers));
+        $this->assertContains(ServiceProvider::class, \array_keys($loaded_providers));
     }
 
     /**
@@ -28,7 +33,7 @@ class ServiceProviderTest extends AbstractUnitTestCase
      *
      * @return void
      */
-    public function testRegisteredValidatorRules()
+    public function testRegisteredValidatorRules(): void
     {
         /** @var \Illuminate\Validation\Factory $laravel_validator */
         $laravel_validator = $this->app->make('validator');
@@ -37,7 +42,7 @@ class ServiceProviderTest extends AbstractUnitTestCase
         $reflection_property = $reflection->getProperty('extensions');
         $reflection_property->setAccessible(true);
 
-        $loaded_extensions = array_keys($reflection_property->getValue($laravel_validator));
+        $loaded_extensions = \array_keys($reflection_property->getValue($laravel_validator));
 
         $extensions_names = [
             'vin_code',
@@ -60,13 +65,13 @@ class ServiceProviderTest extends AbstractUnitTestCase
      *
      * @return void
      */
-    public function testServiceProviderMethods()
+    public function testServiceProviderMethods(): void
     {
-        $this->assertEquals('extended-laravel-validator', ExtendedValidatorServiceProvider::getConfigRootKeyName());
+        $this->assertEquals('extended-laravel-validator', ServiceProvider::getConfigRootKeyName());
 
         $this->assertEquals(
             \realpath(__DIR__ . '/../src/config/extended-laravel-validator.php'),
-            ExtendedValidatorServiceProvider::getConfigPath()
+            ServiceProvider::getConfigPath()
         );
     }
 
@@ -75,7 +80,7 @@ class ServiceProviderTest extends AbstractUnitTestCase
      *
      * @return void
      */
-    public function testPackageConfig()
+    public function testPackageConfig(): void
     {
         $original_config_content = require __DIR__ . '/../src/config/extended-laravel-validator.php';
 
@@ -91,16 +96,16 @@ class ServiceProviderTest extends AbstractUnitTestCase
      *
      * @return void
      */
-    public function testGettingExtensionsFromConfigurationFile()
+    public function testGettingExtensionsFromConfigurationFile(): void
     {
         $mock = m::mock(
-            sprintf('%s[%s]', ExtendedValidatorServiceProvider::class, $what = 'getConfigExtensionsClassesNames'),
+            sprintf('%s[%s]', ServiceProvider::class, $what = 'getConfigExtensionsClassesNames'),
             [$this->app]
         );
 
-        $mock->shouldReceive($what)->once()->andReturn([ExtensionStub::class]);
+        $mock->shouldReceive($what)->once()->andReturn([ExtensionStub::class])->getMock();
 
-        /* @var ExtendedValidatorServiceProvider $mock */
+        /* @var ServiceProvider $mock */
         $this->assertContains(ExtensionStub::class, $mock->getExtensionsClassesNames());
     }
 }

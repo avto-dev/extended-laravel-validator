@@ -1,23 +1,29 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace AvtoDev\ExtendedLaravelValidator\Tests\Extensions;
 
 use AvtoDev\ExtendedLaravelValidator\Extensions\VinCodeValidatorExtension;
 
+/**
+ * @covers \AvtoDev\ExtendedLaravelValidator\Extensions\VinCodeValidatorExtension<extended>
+ * @covers \AvtoDev\ExtendedLaravelValidator\ServiceProvider::boot
+ */
 class VinCodeValidatorExtensionTest extends AbstractExtensionTestCase
 {
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
-    protected function getExtensionClassName()
+    protected function getExtensionClassName(): string
     {
         return VinCodeValidatorExtension::class;
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
-    protected function getInvalidValues()
+    protected function getInvalidValues(): array
     {
         return [
             // Слишком длинные
@@ -90,9 +96,9 @@ class VinCodeValidatorExtensionTest extends AbstractExtensionTestCase
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
-    protected function getValidValues()
+    protected function getValidValues(): array
     {
         return [
             // В нижнем регистре

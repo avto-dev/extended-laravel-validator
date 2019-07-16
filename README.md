@@ -27,14 +27,14 @@ $ composer require avto-dev/extended-laravel-validator "^2.1"
 ```php
 'providers' => [
     // ...
-    AvtoDev\ExtendedLaravelValidator\ExtendedValidatorServiceProvider::class,
+    AvtoDev\ExtendedLaravelValidator\ServiceProvider::class,
 ]
 ```
 
 После этого вы можете опубликовать конфигурационный файл пакета с помощью следующей команды:
 
-```shell
-$ ./artisan vendor:publish --provider="AvtoDev\ExtendedLaravelValidator\ExtendedValidatorServiceProvider"
+```bash
+$ ./artisan vendor:publish --provider="AvtoDev\\ExtendedLaravelValidator\\ServiceProvider"
 ```
 
 ## Использование

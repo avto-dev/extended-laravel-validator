@@ -1,23 +1,29 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace AvtoDev\ExtendedLaravelValidator\Tests\Extensions;
 
 use AvtoDev\ExtendedLaravelValidator\Extensions\ChassisCodeValidatorExtension;
 
+/**
+ * @covers \AvtoDev\ExtendedLaravelValidator\Extensions\ChassisCodeValidatorExtension<extended>
+ * @covers \AvtoDev\ExtendedLaravelValidator\ServiceProvider::boot
+ */
 class ChassisCodeValidatorExtensionTest extends BodyCodeValidatorExtensionTest
 {
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
-    protected function getExtensionClassName()
+    protected function getExtensionClassName(): string
     {
         return ChassisCodeValidatorExtension::class;
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
-    protected function getValidValues()
+    protected function getValidValues(): array
     {
         return array_merge(parent::getValidValues(), [
             'RN1350007371',

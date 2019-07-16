@@ -1,23 +1,29 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace AvtoDev\ExtendedLaravelValidator\Tests\Extensions;
 
 use AvtoDev\ExtendedLaravelValidator\Extensions\DriverLicenseNumberValidatorExtension;
 
+/**
+ * @covers \AvtoDev\ExtendedLaravelValidator\Extensions\DriverLicenseNumberValidatorExtension<extended>
+ * @covers \AvtoDev\ExtendedLaravelValidator\ServiceProvider::boot
+ */
 class DriverLicenseNumberValidatorExtensionTest extends AbstractExtensionTestCase
 {
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
-    protected function getExtensionClassName()
+    protected function getExtensionClassName(): string
     {
         return DriverLicenseNumberValidatorExtension::class;
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
-    protected function getInvalidValues()
+    protected function getInvalidValues(): array
     {
         return [
             // Слишком длинные
@@ -91,9 +97,9 @@ class DriverLicenseNumberValidatorExtensionTest extends AbstractExtensionTestCas
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
-    protected function getValidValues()
+    protected function getValidValues(): array
     {
         return [
             '74 14 292010',

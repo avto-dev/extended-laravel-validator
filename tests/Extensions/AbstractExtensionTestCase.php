@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace AvtoDev\ExtendedLaravelValidator\Tests\Extensions;
 
 use AvtoDev\ExtendedLaravelValidator\AbstractValidatorExtension;
@@ -13,9 +15,9 @@ abstract class AbstractExtensionTestCase extends AbstractUnitTestCase
     protected $instance;
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         parent::setUp();
 
@@ -25,9 +27,9 @@ abstract class AbstractExtensionTestCase extends AbstractUnitTestCase
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
-    protected function tearDown()
+    protected function tearDown(): void
     {
         unset($this->instance);
 
@@ -39,7 +41,7 @@ abstract class AbstractExtensionTestCase extends AbstractUnitTestCase
      *
      * @return void
      */
-    public function testPassesWithValidValues()
+    public function testPassesWithValidValues(): void
     {
         $validator = $this->getValidator();
 
@@ -65,7 +67,7 @@ abstract class AbstractExtensionTestCase extends AbstractUnitTestCase
      *
      * @return void
      */
-    public function testFailsWithInvalidValues()
+    public function testFailsWithInvalidValues(): void
     {
         $validator = $this->getValidator();
 
@@ -91,19 +93,19 @@ abstract class AbstractExtensionTestCase extends AbstractUnitTestCase
      *
      * @return string[]
      */
-    abstract protected function getValidValues();
+    abstract protected function getValidValues(): array;
 
     /**
      * Возвращает массив **НЕ корректных** значений для данного правила валидации.
      *
      * @return string[]
      */
-    abstract protected function getInvalidValues();
+    abstract protected function getInvalidValues(): array;
 
     /**
      * Возвращает имя класса тестируемого расширения для валидатора.
      *
      * @return string
      */
-    abstract protected function getExtensionClassName();
+    abstract protected function getExtensionClassName(): string;
 }

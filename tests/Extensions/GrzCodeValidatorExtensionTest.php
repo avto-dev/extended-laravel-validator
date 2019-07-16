@@ -1,15 +1,21 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace AvtoDev\ExtendedLaravelValidator\Tests\Extensions;
 
 use AvtoDev\ExtendedLaravelValidator\Extensions\GrzCodeValidatorExtension;
 
+/**
+ * @covers \AvtoDev\ExtendedLaravelValidator\Extensions\GrzCodeValidatorExtension<extended>
+ * @covers \AvtoDev\ExtendedLaravelValidator\ServiceProvider::boot
+ */
 class GrzCodeValidatorExtensionTest extends AbstractExtensionTestCase
 {
     /**
      * {@inheritdoc}
      */
-    protected function getExtensionClassName()
+    protected function getExtensionClassName(): string
     {
         return GrzCodeValidatorExtension::class;
     }
@@ -17,7 +23,7 @@ class GrzCodeValidatorExtensionTest extends AbstractExtensionTestCase
     /**
      * {@inheritdoc}
      */
-    protected function getInvalidValues()
+    protected function getInvalidValues(): array
     {
         return [
             // Слишком длинные
@@ -67,7 +73,7 @@ class GrzCodeValidatorExtensionTest extends AbstractExtensionTestCase
     /**
      * {@inheritdoc}
      */
-    protected function getValidValues()
+    protected function getValidValues(): array
     {
         return [
             // М000ММ77 или М000ММ777 (тип 1 - Для легковых, грузовых, грузопассажирских ТС и автобусов)

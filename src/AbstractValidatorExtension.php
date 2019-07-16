@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace AvtoDev\ExtendedLaravelValidator;
 
 abstract class AbstractValidatorExtension implements ValidationExtensionInterface
@@ -7,17 +9,7 @@ abstract class AbstractValidatorExtension implements ValidationExtensionInterfac
     /**
      * {@inheritdoc}
      */
-    abstract public function name();
-
-    /**
-     * {@inheritdoc}
-     */
-    abstract public function passes($attribute, $value);
-
-    /**
-     * {@inheritdoc}
-     */
-    public function message()
+    public function message(): string
     {
         return "This is not valid [{$this->name()}]";
     }

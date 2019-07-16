@@ -1,15 +1,21 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace AvtoDev\ExtendedLaravelValidator\Tests\Extensions;
 
 use AvtoDev\ExtendedLaravelValidator\Extensions\StsCodeValidatorExtension;
 
+/**
+ * @covers \AvtoDev\ExtendedLaravelValidator\Extensions\StsCodeValidatorExtension<extended>
+ * @covers \AvtoDev\ExtendedLaravelValidator\ServiceProvider::boot
+ */
 class StsCodeValidatorExtensionTest extends AbstractExtensionTestCase
 {
     /**
      * {@inheritdoc}
      */
-    protected function getExtensionClassName()
+    protected function getExtensionClassName(): string
     {
         return StsCodeValidatorExtension::class;
     }
@@ -17,7 +23,7 @@ class StsCodeValidatorExtensionTest extends AbstractExtensionTestCase
     /**
      * {@inheritdoc}
      */
-    protected function getInvalidValues()
+    protected function getInvalidValues(): array
     {
         return [
             // Слишком длинные
@@ -79,7 +85,7 @@ class StsCodeValidatorExtensionTest extends AbstractExtensionTestCase
     /**
      * {@inheritdoc}
      */
-    protected function getValidValues()
+    protected function getValidValues(): array
     {
         return [
             // С номерами в серии

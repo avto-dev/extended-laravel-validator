@@ -14,7 +14,7 @@ interface ValidationExtensionInterface
      *
      * @return bool
      */
-    public function passes($attribute, $value);
+    public function passes(string $attribute, $value): bool;
 
     /**
      * Get the validation error message.
@@ -23,12 +23,12 @@ interface ValidationExtensionInterface
      *
      * @return string
      */
-    public function message();
+    public function message(): string;
 
     /**
      * Get the validation rule name.
      *
      * @return string
      */
-    public function name();
+    public function name(): string;
 }

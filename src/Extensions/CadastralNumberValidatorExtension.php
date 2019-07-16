@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace AvtoDev\ExtendedLaravelValidator\Extensions;
 
 use Illuminate\Support\Str;
@@ -33,7 +35,7 @@ class CadastralNumberValidatorExtension extends AbstractValidatorExtension
     /**
      * {@inheritdoc}
      */
-    public function name()
+    public function name(): string
     {
         return 'cadastral_number';
     }
@@ -41,7 +43,7 @@ class CadastralNumberValidatorExtension extends AbstractValidatorExtension
     /**
      * {@inheritdoc}
      */
-    public function passes($attribute, $value)
+    public function passes(string $attribute, $value): bool
     {
         // Статический стек для хранения результатов валидации (для быстродействия)
         static $stack = [];
@@ -50,7 +52,7 @@ class CadastralNumberValidatorExtension extends AbstractValidatorExtension
         if (! isset($stack[$value])) {
             // Удаляем все символы, кроме разрешенных
             // Разрешены только цифры и знак ":"
-            $cleared = \preg_replace('~[^\\d:]~u', '', $value);
+            $cleared = (string) \preg_replace('~[^\\d:]~u', '', (string) $value);
 
             // Вычисляем длину получившейся строки
             $length = Str::length($cleared);

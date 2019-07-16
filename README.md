@@ -2,63 +2,71 @@
   <img src="https://laravel.com/assets/img/components/logo-laravel.svg" alt="Laravel" width="240" />
 </p>
 
-# Расширенные правила для Laravel-валидатора
+# Extensions for Laravel Validator
 
 [![Version][badge_packagist_version]][link_packagist]
 [![Version][badge_php_version]][link_packagist]
 [![Build Status][badge_build_status]][link_build_status]
 [![Coverage][badge_coverage]][link_coverage]
-[![Code quality][badge_code_quality]][link_code_quality]
 [![Downloads count][badge_downloads_count]][link_packagist]
 [![License][badge_license]][link_license]
 
-Данный пакет расширяет "стандартные" правила встроенного в Laravel [валидатора][laravel_validation].
+This package provides extended validation rules for [Laravel validator][laravel_validation].
 
 ## Install
 
 Require this package with composer using the following command:
 
 ```shell
-$ composer require avto-dev/extended-laravel-validator "^2.1"
+$ composer require avto-dev/extended-laravel-validator "^3.0"
 ```
 
-Если вы используете Laravel версии 5.5 и выше, то сервис-провайдер данного пакета будет зарегистрирован автоматически. В противном случае вам необходимо самостоятельно зарегистрировать сервис-провайдер в секции `providers` файла `./config/app.php`:
+> Installed `composer` is required ([how to install composer][getcomposer]).
 
-```php
-'providers' => [
-    // ...
-    AvtoDev\ExtendedLaravelValidator\ExtendedValidatorServiceProvider::class,
-]
+> You need to fix the major version of package.
+
+> If you wants to disable package service-provider auto discover, just add into your `composer.json` next lines:
+>
+> ```json
+> {
+>     "extra": {
+>         "laravel": {
+>             "dont-discover": [
+>                 "avto-dev/extended-laravel-validator"
+>             ]
+>         }
+>     }
+> }
+> ```
+
+After that you can "publish" configuration file (`./config/extended-laravel-validator.php`) using next command:
+
+```bash
+$ ./artisan vendor:publish --provider="AvtoDev\\ExtendedLaravelValidator\\ServiceProvider"
 ```
 
-После этого вы можете опубликовать конфигурационный файл пакета с помощью следующей команды:
+## Usage
 
-```shell
-$ ./artisan vendor:publish --provider="AvtoDev\ExtendedLaravelValidator\ExtendedValidatorServiceProvider"
-```
+This package provides next validation rules:
 
-## Использование
+Rule       | Description
+---------- | -----------
+`vin_code` | Vehicle VIN-code
+`grz_code` | Vehicle GRZ-code
+`sts_code` | Vehicle Registration Certificate Number (STS)
+`pts_code` | Vehicle Passport Number (PTS)
+`body_code` | Vehicle body number
+`chassis_code` | Vehicle chassis number
+`driver_license_number` | Driving license number
+`cadastral_number` | Cadastral number (unique property number)
 
-Данный пакет позволяет использовать следующие правила [валидатора][laravel_validation]:
-
-Правило    | Описание
----------- | ---
-`vin_code` | VIN-код транспортного средства
-`grz_code` | Государственный регистрационный знак (ГРЗ)
-`sts_code` | Номер свидетельства о регистрации транспортного средства (СТС)
-`pts_code` | Номер паспорта транспортного средства (ПТС)
-`body_code` | Номер кузова транспортного средства
-`chassis_code` | Номер шасси транспортного средства
-`driver_license_number` | Номер водительского удостоверения
-`cadastral_number` | Кадастровый номер (уникальный номер объекта недвижимости)
-
-Пример использования:
+Usage example:
 
 ```php
 <?php
 
 /** @var \Illuminate\Contracts\Validation\Factory $validator */
-$validator = app()->make('validator');
+$validator = resolve('validator');
 
 $result = $validator->make([
     'value' => 'XWB3L32EDCA218918',
@@ -69,16 +77,14 @@ $result = $validator->make([
 $is_valid = $result->fails() === false;
 ```
 
-> Опционально вы можете в конфигурационном файле указать дополнительные расширения валидатора, которые вам необходимы.
-
 ### Testing
 
-For package testing we use `phpunit` framework. Just write into your terminal:
+For package testing we use `phpunit` framework and `docker-ce` + `docker-compose` as develop environment. So, just write into your terminal after repository cloning:
 
-```shell
-$ git clone git@github.com:avto-dev/extended-laravel-validator.git ./extended-laravel-validator && cd $_
-$ composer update --dev
-$ composer test
+```bash
+$ make build
+$ make latest # or 'make lowest'
+$ make test
 ```
 
 ## Changes log
@@ -102,7 +108,6 @@ This is open-sourced software licensed under the [MIT License][link_license].
 [badge_packagist_version]:https://img.shields.io/packagist/v/avto-dev/extended-laravel-validator.svg?maxAge=180
 [badge_php_version]:https://img.shields.io/packagist/php-v/avto-dev/extended-laravel-validator.svg?longCache=true
 [badge_build_status]:https://travis-ci.org/avto-dev/extended-laravel-validator.svg?branch=master
-[badge_code_quality]:https://img.shields.io/scrutinizer/g/avto-dev/extended-laravel-validator.svg?maxAge=180
 [badge_coverage]:https://img.shields.io/codecov/c/github/avto-dev/extended-laravel-validator/master.svg?maxAge=60
 [badge_downloads_count]:https://img.shields.io/packagist/dt/avto-dev/extended-laravel-validator.svg?maxAge=180
 [badge_license]:https://img.shields.io/packagist/l/avto-dev/extended-laravel-validator.svg?longCache=true
@@ -115,11 +120,10 @@ This is open-sourced software licensed under the [MIT License][link_license].
 [link_build_status]:https://travis-ci.org/avto-dev/extended-laravel-validator
 [link_coverage]:https://codecov.io/gh/avto-dev/extended-laravel-validator/
 [link_changes_log]:https://github.com/avto-dev/extended-laravel-validator/blob/master/CHANGELOG.md
-[link_code_quality]:https://scrutinizer-ci.com/g/avto-dev/extended-laravel-validator/
 [link_issues]:https://github.com/avto-dev/extended-laravel-validator/issues
 [link_create_issue]:https://github.com/avto-dev/extended-laravel-validator/issues/new/choose
 [link_commits]:https://github.com/avto-dev/extended-laravel-validator/commits
 [link_pulls]:https://github.com/avto-dev/extended-laravel-validator/pulls
 [link_license]:https://github.com/avto-dev/extended-laravel-validator/blob/master/LICENSE
 [getcomposer]:https://getcomposer.org/download/
-[laravel_validation]:https://laravel.com/docs/5.5/validation
+[laravel_validation]:https://laravel.com/docs/5.8/validation

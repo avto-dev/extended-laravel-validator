@@ -1,20 +1,21 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace AvtoDev\ExtendedLaravelValidator\Tests\Extensions;
 
 use AvtoDev\ExtendedLaravelValidator\Extensions\CadastralNumberValidatorExtension;
 
 /**
- * Class CadastralNumberValidatorExtensionTest.
- *
- * @group Eldar
+ * @covers \AvtoDev\ExtendedLaravelValidator\Extensions\CadastralNumberValidatorExtension<extended>
+ * @covers \AvtoDev\ExtendedLaravelValidator\ServiceProvider::boot
  */
 class CadastralNumberValidatorExtensionTest extends AbstractExtensionTestCase
 {
     /**
      * {@inheritdoc}
      */
-    protected function getExtensionClassName()
+    protected function getExtensionClassName(): string
     {
         return CadastralNumberValidatorExtension::class;
     }
@@ -22,7 +23,7 @@ class CadastralNumberValidatorExtensionTest extends AbstractExtensionTestCase
     /**
      * {@inheritdoc}
      */
-    protected function getInvalidValues()
+    protected function getInvalidValues(): array
     {
         return [
             '66:01:0000000:2013156',
@@ -60,7 +61,7 @@ class CadastralNumberValidatorExtensionTest extends AbstractExtensionTestCase
     /**
      * {@inheritdoc}
      */
-    protected function getValidValues()
+    protected function getValidValues(): array
     {
         return [
             '66:01:000000:2',

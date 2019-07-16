@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace AvtoDev\ExtendedLaravelValidator\Extensions;
 
 use Illuminate\Support\Str;
@@ -44,7 +46,7 @@ class GrzCodeValidatorExtension extends AbstractValidatorExtension
     /**
      * {@inheritdoc}
      */
-    public function name()
+    public function name(): string
     {
         return 'grz_code';
     }
@@ -52,7 +54,7 @@ class GrzCodeValidatorExtension extends AbstractValidatorExtension
     /**
      * {@inheritdoc}
      */
-    public function passes($attribute, $value)
+    public function passes(string $attribute, $value): bool
     {
         // Статический стек для хранения результатов валидации (для быстродействия)
         static $stack = [];
@@ -66,7 +68,7 @@ class GrzCodeValidatorExtension extends AbstractValidatorExtension
             $uppercase = Str::upper($value);
 
             // Удаляем все символы, кроме разрешенных
-            $cleared = \preg_replace("~[^0-9{$kyr_chars}]~u", '', $uppercase);
+            $cleared = (string) \preg_replace("~[^0-9{$kyr_chars}]~u", '', $uppercase);
 
             // Вычисляем длину получившейся строки
             $length = Str::length($cleared);

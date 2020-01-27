@@ -8,7 +8,7 @@ The format is based on [Keep a Changelog][keepachangelog] and this project adher
 
 ### Added
 
-- Now supported `grz` codes type 15, for cars, trucks, utility vehicles, buses, trailers and semi-trailers (transit format)
+- `grz_code` now supports "transit" type (`ГОСТ Р 50577-93, тип 15` - `ММ000М77` and `ММ000М777`)
 
 ## v3.1.0
 

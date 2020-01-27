@@ -67,11 +67,11 @@ class ServiceProviderTest extends AbstractUnitTestCase
      */
     public function testServiceProviderMethods(): void
     {
-        $this->assertEquals('extended-laravel-validator', ServiceProvider::getConfigRootKeyName());
+        $this->assertSame('extended-laravel-validator', ServiceProvider::getConfigRootKeyName());
 
-        $this->assertEquals(
-            \realpath(__DIR__ . '/../src/config/extended-laravel-validator.php'),
-            ServiceProvider::getConfigPath()
+        $this->assertSame(
+            \realpath(__DIR__ . '/../config/extended-laravel-validator.php'),
+            \realpath(ServiceProvider::getConfigPath())
         );
     }
 
@@ -82,7 +82,7 @@ class ServiceProviderTest extends AbstractUnitTestCase
      */
     public function testPackageConfig(): void
     {
-        $original_config_content = require __DIR__ . '/../src/config/extended-laravel-validator.php';
+        $original_config_content = require __DIR__ . '/../config/extended-laravel-validator.php';
 
         $this->assertInternalType('array', $original_config_content);
         $this->assertArrayHasKey('extensions', $original_config_content);

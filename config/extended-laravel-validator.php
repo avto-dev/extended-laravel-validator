@@ -1,7 +1,6 @@
 <?php
 
 return [
-
     /*
     |--------------------------------------------------------------------------
     | Extended Laravel Validator Configuration
@@ -14,8 +13,8 @@ return [
     | - \AvtoDev\ExtendedLaravelValidator\ValidationExtensionInterface
     |
     */
+
     'extensions' => [
         // \Your\ValidatorExtension::class,
     ],
-
 ];

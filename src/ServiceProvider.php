@@ -27,7 +27,7 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
      */
     public static function getConfigPath(): string
     {
-        return __DIR__ . '/config/extended-laravel-validator.php';
+        return __DIR__ . '/../config/extended-laravel-validator.php';
     }
 
     /**
@@ -54,7 +54,7 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
             /** @var ValidationExtensionInterface $extension */
             $extension = $container->make($class_name);
 
-            $factory->extend($extension->name(), function ($attribute, $value) use ($extension): bool {
+            $factory->extend($extension->name(), static function ($attribute, $value) use ($extension): bool {
                 return $extension->passes($attribute, $value);
             }, $extension->message());
         }
@@ -86,9 +86,10 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
      */
     public function getConfigExtensionsClassesNames(): array
     {
-        return (array) $this->app->make(ConfigRepository::class)->get(
-            \sprintf('%s.extensions', static::getConfigRootKeyName())
-        );
+        /** @var ConfigRepository $config */
+        $config = $this->app->make(ConfigRepository::class);
+
+        return (array) $config->get(static::getConfigRootKeyName() . '.extensions', []);
     }
 
     /**

@@ -38,4 +38,4 @@ shell: ## Start shell into container with php
     $(RUN_APP_ARGS) sh
 
 clean: ## Remove all dependencies and unimportant files
-	-rm -Rf ./composer.lock ./vendor ./coverage ./tests/temp
+	-rm -Rf ./composer.lock ./vendor ./coverage

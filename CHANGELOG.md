@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog][keepachangelog] and this project adher
 ### Added
 
 - `grz_code` now supports "transit" type (`ГОСТ Р 50577-93, тип 15` - `ММ000М77` and `ММ000М777`)
+- Directory with config file moved from directory `src` to root (was: `./src/config`, become: `./config`)
 
 ## v3.1.0
 

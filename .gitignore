@@ -11,9 +11,7 @@ composer.lock
 # Temp dirs & trash
 /temp
 /tmp
-/install
-/build
 /coverage
 clover-file
 .DS_Store
-.php_cs.cache
+*.cache

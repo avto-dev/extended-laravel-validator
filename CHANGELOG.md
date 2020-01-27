@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keepachangelog] and this project adheres to [Semantic Versioning][semver].
 
+## v3.2.0
+
+### Added
+
+- `grz_code` now supports "transit" type (`ГОСТ Р 50577-93, тип 15` - `ММ000М77` and `ММ000М777`)
+
 ## v3.1.0
 
 ### Changed

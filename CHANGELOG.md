@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keepachangelog] and this project adheres to [Semantic Versioning][semver].
 
+## v3.1.1
+
+### Added
+
+- Now supported `grz` codes type 15, for cars, trucks, utility vehicles, buses, trailers and semi-trailers (transit format)
+
 ## v3.1.0
 
 ### Changed

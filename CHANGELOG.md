@@ -74,7 +74,7 @@ The format is based on [Keep a Changelog][keepachangelog] and this project adher
 
 ### Added
 
-- Package config file. That can extends package validator extensions.
+- Package config file. That can extends package validator extensions
 
 ### Changed
 

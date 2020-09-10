@@ -84,7 +84,7 @@ class ServiceProviderTest extends AbstractUnitTestCase
     {
         $original_config_content = require __DIR__ . '/../config/extended-laravel-validator.php';
 
-        $this->assertInternalType('array', $original_config_content);
+        $this->assertIsArray($original_config_content);
         $this->assertArrayHasKey('extensions', $original_config_content);
         $this->assertEmpty($original_config_content['extensions']);
 

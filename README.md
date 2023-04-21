@@ -93,7 +93,7 @@ This is open-sourced software licensed under the [MIT License][link_license].
 
 [badge_packagist_version]:https://img.shields.io/packagist/v/avto-dev/extended-laravel-validator.svg?maxAge=180
 [badge_php_version]:https://img.shields.io/packagist/php-v/avto-dev/extended-laravel-validator.svg?longCache=true
-[badge_build_status]:https://img.shields.io/github/workflow/status/avto-dev/extended-laravel-validator/tests/master
+[badge_build_status]:https://img.shields.io/github/actions/workflow/status/avto-dev/extended-laravel-validator/tests.yml
 [badge_coverage]:https://img.shields.io/codecov/c/github/avto-dev/extended-laravel-validator/master.svg?maxAge=60
 [badge_downloads_count]:https://img.shields.io/packagist/dt/avto-dev/extended-laravel-validator.svg?maxAge=180
 [badge_license]:https://img.shields.io/packagist/l/avto-dev/extended-laravel-validator.svg?longCache=true

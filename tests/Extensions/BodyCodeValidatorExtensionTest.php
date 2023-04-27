@@ -7,7 +7,7 @@ namespace AvtoDev\ExtendedLaravelValidator\Tests\Extensions;
 use AvtoDev\ExtendedLaravelValidator\Extensions\BodyCodeValidatorExtension;
 
 /**
- * @covers \AvtoDev\ExtendedLaravelValidator\Extensions\BodyCodeValidatorExtension<extended>
+ * @covers \AvtoDev\ExtendedLaravelValidator\Extensions\BodyCodeValidatorExtension
  * @covers \AvtoDev\ExtendedLaravelValidator\ServiceProvider::boot
  */
 class BodyCodeValidatorExtensionTest extends AbstractExtensionTestCase

@@ -7,7 +7,7 @@ namespace AvtoDev\ExtendedLaravelValidator\Tests\Extensions;
 use AvtoDev\ExtendedLaravelValidator\Extensions\GrzCodeValidatorExtension;
 
 /**
- * @covers \AvtoDev\ExtendedLaravelValidator\Extensions\GrzCodeValidatorExtension<extended>
+ * @covers \AvtoDev\ExtendedLaravelValidator\Extensions\GrzCodeValidatorExtension
  * @covers \AvtoDev\ExtendedLaravelValidator\ServiceProvider::boot
  */
 class GrzCodeValidatorExtensionTest extends AbstractExtensionTestCase

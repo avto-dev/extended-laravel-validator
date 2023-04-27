@@ -7,7 +7,7 @@ namespace AvtoDev\ExtendedLaravelValidator\Tests\Extensions;
 use AvtoDev\ExtendedLaravelValidator\Extensions\CadastralNumberValidatorExtension;
 
 /**
- * @covers \AvtoDev\ExtendedLaravelValidator\Extensions\CadastralNumberValidatorExtension<extended>
+ * @covers \AvtoDev\ExtendedLaravelValidator\Extensions\CadastralNumberValidatorExtension
  * @covers \AvtoDev\ExtendedLaravelValidator\ServiceProvider::boot
  */
 class CadastralNumberValidatorExtensionTest extends AbstractExtensionTestCase

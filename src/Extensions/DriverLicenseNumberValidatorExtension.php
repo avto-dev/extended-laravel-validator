@@ -39,6 +39,8 @@ class DriverLicenseNumberValidatorExtension extends AbstractValidatorExtension
 
     /**
      * {@inheritdoc}
+     *
+     * @param string $value
      */
     public function passes(string $attribute, $value): bool
     {

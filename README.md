@@ -35,16 +35,16 @@ $ ./artisan vendor:publish --provider="AvtoDev\\ExtendedLaravelValidator\\Servic
 
 This package provides next validation rules:
 
-Rule       | Description
----------- | -----------
-`vin_code` | Vehicle VIN-code
-`grz_code` | Vehicle GRZ-code
-`sts_code` | Vehicle Registration Certificate Number (STS)
-`pts_code` | Vehicle Passport Number (PTS)
-`body_code` | Vehicle body number
-`chassis_code` | Vehicle chassis number
-`driver_license_number` | Driving license number
-`cadastral_number` | Cadastral number (unique property number)
+| Rule                    | Description                                    |
+|-------------------------|------------------------------------------------|
+| `vin_code`              | Vehicle VIN-code                               |
+| `grz_code`              | Vehicle GRZ-code                               |
+| `sts_code`              | Vehicle Registration Certificate Number (STS)  |
+| `pts_code`              | Vehicle Passport Number (PTS)                  |
+| `body_code`             | Vehicle body number                            |
+| `chassis_code`          | Vehicle chassis number                         |
+| `driver_license_number` | Driving license number                         |
+| `cadastral_number`      | Cadastral number (unique property number)      |
 
 Usage example:
 

@@ -8,6 +8,7 @@ use AvtoDev\ExtendedLaravelValidator\Extensions\BodyCodeValidatorExtension;
 
 /**
  * @covers \AvtoDev\ExtendedLaravelValidator\Extensions\BodyCodeValidatorExtension
+ * @covers \AvtoDev\ExtendedLaravelValidator\AbstractValidatorExtension::message
  * @covers \AvtoDev\ExtendedLaravelValidator\ServiceProvider::boot
  */
 class BodyCodeValidatorExtensionTest extends AbstractExtensionTestCase

@@ -8,6 +8,7 @@ use AvtoDev\ExtendedLaravelValidator\Extensions\CadastralNumberValidatorExtensio
 
 /**
  * @covers \AvtoDev\ExtendedLaravelValidator\Extensions\CadastralNumberValidatorExtension
+ * @covers \AvtoDev\ExtendedLaravelValidator\AbstractValidatorExtension::message
  * @covers \AvtoDev\ExtendedLaravelValidator\ServiceProvider::boot
  */
 class CadastralNumberValidatorExtensionTest extends AbstractExtensionTestCase

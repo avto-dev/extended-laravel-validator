@@ -8,6 +8,7 @@ use AvtoDev\ExtendedLaravelValidator\Extensions\GrzCodeValidatorExtension;
 
 /**
  * @covers \AvtoDev\ExtendedLaravelValidator\Extensions\GrzCodeValidatorExtension
+ * @covers \AvtoDev\ExtendedLaravelValidator\AbstractValidatorExtension::message
  * @covers \AvtoDev\ExtendedLaravelValidator\ServiceProvider::boot
  */
 class GrzCodeValidatorExtensionTest extends AbstractExtensionTestCase

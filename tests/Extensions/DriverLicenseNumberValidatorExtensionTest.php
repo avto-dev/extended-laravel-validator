@@ -8,6 +8,7 @@ use AvtoDev\ExtendedLaravelValidator\Extensions\DriverLicenseNumberValidatorExte
 
 /**
  * @covers \AvtoDev\ExtendedLaravelValidator\Extensions\DriverLicenseNumberValidatorExtension
+ * @covers \AvtoDev\ExtendedLaravelValidator\AbstractValidatorExtension::message
  * @covers \AvtoDev\ExtendedLaravelValidator\ServiceProvider::boot
  */
 class DriverLicenseNumberValidatorExtensionTest extends AbstractExtensionTestCase

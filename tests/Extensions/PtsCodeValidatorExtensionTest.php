@@ -8,6 +8,7 @@ use AvtoDev\ExtendedLaravelValidator\Extensions\PtsCodeValidatorExtension;
 
 /**
  * @covers \AvtoDev\ExtendedLaravelValidator\Extensions\PtsCodeValidatorExtension
+ * @covers \AvtoDev\ExtendedLaravelValidator\AbstractValidatorExtension::message
  * @covers \AvtoDev\ExtendedLaravelValidator\ServiceProvider::boot
  */
 class PtsCodeValidatorExtensionTest extends StsCodeValidatorExtensionTest

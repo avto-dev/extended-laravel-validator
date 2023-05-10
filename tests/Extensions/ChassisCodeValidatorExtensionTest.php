@@ -8,6 +8,7 @@ use AvtoDev\ExtendedLaravelValidator\Extensions\ChassisCodeValidatorExtension;
 
 /**
  * @covers \AvtoDev\ExtendedLaravelValidator\Extensions\ChassisCodeValidatorExtension
+ * @covers \AvtoDev\ExtendedLaravelValidator\AbstractValidatorExtension::message
  * @covers \AvtoDev\ExtendedLaravelValidator\ServiceProvider::boot
  */
 class ChassisCodeValidatorExtensionTest extends BodyCodeValidatorExtensionTest

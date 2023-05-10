@@ -8,6 +8,7 @@ use AvtoDev\ExtendedLaravelValidator\Extensions\VinCodeValidatorExtension;
 
 /**
  * @covers \AvtoDev\ExtendedLaravelValidator\Extensions\VinCodeValidatorExtension
+ * @covers \AvtoDev\ExtendedLaravelValidator\AbstractValidatorExtension::message
  * @covers \AvtoDev\ExtendedLaravelValidator\ServiceProvider::boot
  */
 class VinCodeValidatorExtensionTest extends AbstractExtensionTestCase

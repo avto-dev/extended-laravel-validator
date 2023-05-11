@@ -82,14 +82,17 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
     /**
      * Get an extensions classes names, declared in configuration file.
      *
-     * @return string[]|array
+     * @return class-string[]|array
      */
     public function getConfigExtensionsClassesNames(): array
     {
         /** @var ConfigRepository $config */
         $config = $this->app->make(ConfigRepository::class);
 
-        return (array) $config->get(static::getConfigRootKeyName() . '.extensions', []);
+        /** @var class-string[] $extensions */
+        $extensions = $config->get(static::getConfigRootKeyName() . '.extensions', []);
+
+        return $extensions;
     }
 
     /**

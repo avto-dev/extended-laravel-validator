@@ -7,7 +7,8 @@ namespace AvtoDev\ExtendedLaravelValidator\Tests\Extensions;
 use AvtoDev\ExtendedLaravelValidator\Extensions\DriverLicenseNumberValidatorExtension;
 
 /**
- * @covers \AvtoDev\ExtendedLaravelValidator\Extensions\DriverLicenseNumberValidatorExtension<extended>
+ * @covers \AvtoDev\ExtendedLaravelValidator\Extensions\DriverLicenseNumberValidatorExtension
+ * @covers \AvtoDev\ExtendedLaravelValidator\AbstractValidatorExtension::message
  * @covers \AvtoDev\ExtendedLaravelValidator\ServiceProvider::boot
  */
 class DriverLicenseNumberValidatorExtensionTest extends AbstractExtensionTestCase

@@ -85,6 +85,11 @@ abstract class AbstractExtensionTestCase extends AbstractUnitTestCase
             ));
         }
 
+        $this->assertEquals(
+            sprintf('This is not valid [%s]', $this->instance->name()),
+            $this->instance->message(),
+        );
+
         $this->assertGreaterThanOrEqual(1, count($values));
     }
 

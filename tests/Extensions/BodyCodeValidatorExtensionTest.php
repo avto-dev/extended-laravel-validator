@@ -40,6 +40,7 @@ class BodyCodeValidatorExtensionTest extends AbstractExtensionTestCase
             'ZZT241-000700412',
 
             // Слишком короткие
+            '0685256',
             '068525',
             '06852',
             '0685',
@@ -82,7 +83,6 @@ class BodyCodeValidatorExtensionTest extends AbstractExtensionTestCase
     protected function getValidValues(): array
     {
         return [
-            '0685251',
             'AT2113041080',
             'NZE141-9134919',
             'GD11231271',

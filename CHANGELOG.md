@@ -8,7 +8,7 @@ The format is based on [Keep a Changelog][keepachangelog] and this project adher
 
 ### Changed
 
-- Minimal valid length of `body_code` and `chassis_code` is 8 symbols
+- Minimal valid length of `chassis_code` and `body_code` is 8 symbols
 
 ## v3.8.0
 

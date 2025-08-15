@@ -8,16 +8,12 @@ use Illuminate\Support\Str;
 use AvtoDev\ExtendedLaravelValidator\AbstractValidatorExtension;
 
 /**
- * Правило валидации VIN-кодов.
+ * Длина должна составлять 17 символов.
+ * Допускаются только латинские буквы (за исключением I, O, Q) и цифры.
+ * Последние четыре символа должны быть цифрами.
+ * Должна присутствовать хотя бы одна буква и одна цифра, отличная от нуля.
  *
- * Структура кода основана на стандартах ISO 3779-1983 и ISO 3780.
- * В VIN разрешено использовать только следующие символы латинского алфавита и арабские цифры:
- * 0 1 2 3 4 5 6 7 8 9 A B C D E F G H J K L M N P R S T U V W X Y Z
- *
- * Использовать буквы I, O, Q запрещено, так как они сходны по начертанию с цифрами 1, 0, а также между
- * собой.
- *
- * @see <http://goo.gl/xlDFCk>
+ * @see <https://gitlab.spectrumdata.tech/shared/ids/-/blob/dev/doc/format_control/rules/vehicle/VIN.md>
  */
 class VinCodeValidatorExtension extends AbstractValidatorExtension
 {
@@ -54,6 +50,7 @@ class VinCodeValidatorExtension extends AbstractValidatorExtension
                 && \preg_match('~\d~', $value) === 1 // Содержит числа
                 && ! Str::contains($uppercase, ['I', 'O', 'Q']) // Не содержит запрещенные символы
                 && \is_numeric(Str::substr($uppercase, -4, 4)) // Последние четыре символа обязательно числа
+                && preg_match('/^(?=.*[a-zA-Z])(?=.*[1-9]).*$/', $uppercase)  // Строка содержит хотя бы одну букву и одну цифру, отличную от нуля
             );
         }
 

@@ -66,13 +66,13 @@ class GrzCodeValidatorExtension extends AbstractValidatorExtension
         // Если значение в стеке уже есть - то просто возвращаем его
         if (! isset($stack[$value])) {
             // Разрешенные кириллические символы
-            static $allowed_chars = 'АВЕКМНОРСТУХ';
+            static $kyr_chars = 'АВЕКМНОРСТУХ';
 
             // Значение в верхнем регистре
             $uppercase = Str::upper($value);
 
             // Удаляем все символы, кроме разрешенных
-            $cleared = (string) \preg_replace("~[^0-9{$allowed_chars}]~u", '', $uppercase);
+            $cleared = (string) \preg_replace("~[^0-9{$kyr_chars}]~u", '', $uppercase);
 
             // Вычисляем длину получившейся строки
             $length = Str::length($cleared);
@@ -81,15 +81,15 @@ class GrzCodeValidatorExtension extends AbstractValidatorExtension
                 $length >= 6 && $length <= 9 // Проверяем соответствие минимальной и максимальной длине
                 && $uppercase === $cleared // После удаления запрещенных символов - значение не изменилось
                 && ( // Соответствует ли одному из шаблонов
-                    \preg_match("~^[{$allowed_chars}]{1}\d{3}[{$allowed_chars}]{2}\d{2,3}$~iu", $cleared) === 1 // М000ММ77 и М000ММ777
-                    || \preg_match("~^[{$allowed_chars}]{1}\d{3}[{$allowed_chars}]{2}$~iu", $cleared) === 1 // М000ММ
-                    || \preg_match("~^[{$allowed_chars}]{2}\d{3}\d{2}$~iu", $cleared) === 1 // ММ00077
-                    || \preg_match("~^\d{4}[{$allowed_chars}]{2}\d{2}$~iu", $cleared) === 1 // 0000ММ77
-                    || \preg_match("~^[{$allowed_chars}]{2}\d{4}\d{2}$~iu", $cleared) === 1 // ММ000077
-                    || \preg_match("~^[{$allowed_chars}]{1}\d{4}\d{2}$~iu", $cleared) === 1 // М000077
-                    || \preg_match("~^\d{3}[{$allowed_chars}]{1}\d{2}$~iu", $cleared) === 1 // 000М77
-                    || \preg_match("~^\d{4}[{$allowed_chars}]{1}\d{2}$~iu", $cleared) === 1 // 0000М77
-                    || \preg_match("~^[{$allowed_chars}]{2}\d{3}[{$allowed_chars}]\d{2,3}$~iu", $cleared) === 1 // ММ000М77 и ММ000М777
+                    \preg_match("~^[{$kyr_chars}]{1}\d{3}[{$kyr_chars}]{2}\d{2,3}$~iu", $cleared) === 1 // М000ММ77 и М000ММ777
+                    || \preg_match("~^[{$kyr_chars}]{1}\d{3}[{$kyr_chars}]{2}$~iu", $cleared) === 1 // М000ММ
+                    || \preg_match("~^[{$kyr_chars}]{2}\d{3}\d{2}$~iu", $cleared) === 1 // ММ00077
+                    || \preg_match("~^\d{4}[{$kyr_chars}]{2}\d{2}$~iu", $cleared) === 1 // 0000ММ77
+                    || \preg_match("~^[{$kyr_chars}]{2}\d{4}\d{2}$~iu", $cleared) === 1 // ММ000077
+                    || \preg_match("~^[{$kyr_chars}]{1}\d{4}\d{2}$~iu", $cleared) === 1 // М000077
+                    || \preg_match("~^\d{3}[{$kyr_chars}]{1}\d{2}$~iu", $cleared) === 1 // 000М77
+                    || \preg_match("~^\d{4}[{$kyr_chars}]{1}\d{2}$~iu", $cleared) === 1 // 0000М77
+                    || \preg_match("~^[{$kyr_chars}]{2}\d{3}[{$kyr_chars}]\d{2,3}$~iu", $cleared) === 1 // ММ000М77 и ММ000М777
                 )
             );
         }

@@ -72,6 +72,12 @@ class VinCodeValidatorExtensionTest extends AbstractExtensionTestCase
             'JTEHТ05J602091383',
             'XTА21124070486756',
 
+            // Содержащие строчные буквы
+            'Xw8ZZZ61ZLG028617',
+            '5uxfa13585ly08847',
+            'wbafw51040C245397',
+            'z94cb41abdr105897',
+
             // Содержащие запрещенные символы
             'XTAIS015LG0916164',
             'JTHBK2623620O3591',
@@ -98,7 +104,7 @@ class VinCodeValidatorExtensionTest extends AbstractExtensionTestCase
 
             // Должна быть хотя бы одна цифра отличная от нуля и хотя бы одна буква
             '00000000000000001',
-            'AAAAAAAAAAAAAAAA',
+            'AAAAAAAAAAAAAAAAA',
             'A0000000000000000',
 
             // Последние четыре символа должны быть цифрами.
@@ -115,11 +121,6 @@ class VinCodeValidatorExtensionTest extends AbstractExtensionTestCase
     protected function getValidValues(): array
     {
         return [
-            // В нижнем регистре
-            '5uxfa13585ly08847',
-            'wbafw51040C245397',
-            'z94cb41abdr105897',
-
             '5UXFA13585LY08847',
             'WBAFW51040C245397',
             'Z94CB41ABDR105897',
@@ -222,7 +223,6 @@ class VinCodeValidatorExtensionTest extends AbstractExtensionTestCase
             'XWF0AHM75B0002747',
             'XW8ZZZ61ZLG028617',
             'A0000000000000001',
-
         ];
     }
 }

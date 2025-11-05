@@ -8,12 +8,16 @@ use Illuminate\Support\Str;
 use AvtoDev\ExtendedLaravelValidator\AbstractValidatorExtension;
 
 /**
- * Длина должна составлять 17 символов.
- * Допускаются только латинские буквы (за исключением I, O, Q) и цифры.
- * Последние четыре символа должны быть цифрами.
- * Должна присутствовать хотя бы одна буква и одна цифра, отличная от нуля.
+ * Правила валидации VIN транспортного средства.
  *
- * @see <https://gitlab.spectrumdata.tech/shared/ids/-/blob/dev/doc/format_control/rules/vehicle/VIN.md>
+ * 1. Длина 17 символов
+ * 2. Верхний регистр
+ * 3. Набор символов — цифры и латиница за исключением символов `Q`, `I`, `O`
+ * 4. Последние четыре символа — цифры
+ * 5. Хотя бы одна буква
+ * 6. Хотя бы одна цифра != 0
+ *
+ * @see <https://gitlab.spectrumdata.tech/shared/ids/-/blob/dev/doc/README.md>
  */
 class VinCodeValidatorExtension extends AbstractValidatorExtension
 {

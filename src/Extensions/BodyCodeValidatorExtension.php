@@ -10,9 +10,13 @@ use AvtoDev\ExtendedLaravelValidator\AbstractValidatorExtension;
 /**
  * Правило валидации номера кузова транспортного средства.
  *
- * Конкретные данные о стандарте номера не были найдены на момент написания данных строк.
+ * 1. Длина от 7 до 15 символов
+ * 2. Верхний регистр
+ * 3. Набор символов — латиница, кириллица, цифры
+ * 4. Хотя бы одна цифра != 0
+ * 5. Все буквы из одного алфавита
  *
- * @see https://ru.wikipedia.org/wiki/Паспорт_транспортного_средства
+ * @see <https://gitlab.spectrumdata.tech/shared/ids/-/blob/dev/doc/README.md>
  */
 class BodyCodeValidatorExtension extends AbstractValidatorExtension
 {

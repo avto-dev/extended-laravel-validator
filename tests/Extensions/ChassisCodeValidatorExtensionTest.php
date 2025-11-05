@@ -30,9 +30,9 @@ class ChassisCodeValidatorExtensionTest extends BodyCodeValidatorExtensionTest
             'RN1350007371',
             'LH800023313',
             'TA01W863799',
-            'LN130-0128818',
+            'LN1300128818',
             'SE28M404312',
-            'UZJ100-0140027',
+            'UZJ1000140027',
             'K971009415',
         ]);
     }

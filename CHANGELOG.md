@@ -8,7 +8,12 @@ The format is based on [Keep a Changelog][keepachangelog] and this project adher
 
 ### Added
 
-- VIN code must contain at least one non-zero digit and at least one letter
+- Minimal valid length of `chassis_code` and `body_code` is 7 symbols
+- `vin_code` must contain at least one non-zero digit and at least one letter
+- `vin_code`, `chassis_code` and `body_code` must contain only uppercase symbols
+- `chassis_code` and `body_code` must contain at least one non-zero digit
+- `chassis_code` and `body_code` must contain only cyrillic letters or only latin letters
+- `chassis_code` and `body_code` should no longer match the pattern
 
 ## v5.0.0
 

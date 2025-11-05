@@ -41,16 +41,8 @@ class VinCodeValidatorExtension extends AbstractValidatorExtension
 
         // Если значение в стеке уже есть - то просто возвращаем его
         if (! isset($stack[$value])) {
-            // Удаляем все символы, кроме разрешенных
-            $cleared = \preg_replace('~[^0-9ABCDEFGHJKLMNPRSTUVWXYZ]~', '', $value);
-
             $stack[$value] = (
-                Str::length($value) === 17 // Длинна соответствует
-                && $value === $cleared // После удаления запрещенных символов - значение не изменилось
-                && \preg_match('~[A-Z]~', $value) === 1 // Содержит символы
-                && \preg_match('~\d~', $value) === 1 // Содержит числа
-                && ! Str::contains($value, ['I', 'O', 'Q']) // Не содержит запрещенные символы
-                && \is_numeric(Str::substr($value, -4, 4)) // Последние четыре символа обязательно числа
+                preg_match('/^[A-HJ-NPR-Z0-9]{13}[0-9]{4}$/', $value) === 1 // Соответствует паттерну
                 && preg_match('/^(?=.*[A-Z])(?=.*[1-9]).*$/', $value)  // Строка содержит хотя бы одну букву и одну цифру, отличную от нуля
             );
         }

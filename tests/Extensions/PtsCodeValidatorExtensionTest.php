@@ -10,10 +10,8 @@ use AvtoDev\ExtendedLaravelValidator\Extensions\PtsCodeValidatorExtension;
  * @covers \AvtoDev\ExtendedLaravelValidator\Extensions\PtsCodeValidatorExtension
  * @covers \AvtoDev\ExtendedLaravelValidator\AbstractValidatorExtension::message
  * @covers \AvtoDev\ExtendedLaravelValidator\ServiceProvider::boot
- *
- *                                                                @group www
  */
-class PtsCodeValidatorExtensionTest extends StsCodeValidatorExtensionTest
+class PtsCodeValidatorExtensionTest extends AbstractExtensionTestCase
 {
     /**
      * {@inheritdoc}

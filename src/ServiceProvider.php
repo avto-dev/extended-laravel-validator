@@ -76,6 +76,7 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
             Extensions\ChassisCodeValidatorExtension::class,
             Extensions\DriverLicenseNumberValidatorExtension::class,
             Extensions\CadastralNumberValidatorExtension::class,
+            Extensions\EptsCodeValidatorExtension::class,
         ], $this->getConfigExtensionsClassesNames()));
     }
 

@@ -4,6 +4,17 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keepachangelog] and this project adheres to [Semantic Versioning][semver].
 
+## Unreleased
+
+### Added
+
+- `epts_code` validator
+
+### Changed
+
+- Rules of `vin_code`, `body_code`, `chassis_code`, `grz_code`, `sts_code` and `pts_code` validators
+- In `vin_code`, `body_code`, `chassis_code`, `grz_code`, `sts_code` and `pts_code` validators added type validation
+
 ## v5.0.0
 
 ### Added

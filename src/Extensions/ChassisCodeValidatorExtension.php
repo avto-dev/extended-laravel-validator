@@ -5,13 +5,7 @@ declare(strict_types = 1);
 namespace AvtoDev\ExtendedLaravelValidator\Extensions;
 
 /**
- * Правило валидации номера шасси транспортного средства.
- *
- * Конкретные данные о стандарте номера не были найдены на момент написания данных строк.
- *
- * По всей видимости правило валидации аналогичное правилу валидации номера кузова.
- *
- * @see https://ru.wikipedia.org/wiki/Рама_(автомобиль)
+ * Правило валидации номера Шасси (Chassis) транспортного средства.
  */
 class ChassisCodeValidatorExtension extends BodyCodeValidatorExtension
 {

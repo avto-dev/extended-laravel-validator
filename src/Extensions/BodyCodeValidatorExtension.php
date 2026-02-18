@@ -4,18 +4,23 @@ declare(strict_types = 1);
 
 namespace AvtoDev\ExtendedLaravelValidator\Extensions;
 
-use Illuminate\Support\Str;
+use AvtoDev\ExtendedLaravelValidator\Helpers\Strings;
 use AvtoDev\ExtendedLaravelValidator\AbstractValidatorExtension;
 
 /**
- * Правило валидации номера кузова транспортного средства.
+ * Правило валидации Номера Кузова (Body) транспортного средства.
  *
- * Конкретные данные о стандарте номера не были найдены на момент написания данных строк.
- *
- * @see https://ru.wikipedia.org/wiki/Паспорт_транспортного_средства
+ * 1. Длина от 7 до 15 символов
+ * 2. Верхний регистр
+ * 3. Набор символов — латиница, кириллица, цифры
+ * 4. Хотя бы одна цифра != 0
+ * 5. Все буквы из одного алфавита
  */
 class BodyCodeValidatorExtension extends AbstractValidatorExtension
 {
+    private const LENGTH_MIN = 7;
+    private const LENGTH_MAX = 15;
+
     /**
      * {@inheritdoc}
      */
@@ -31,28 +36,27 @@ class BodyCodeValidatorExtension extends AbstractValidatorExtension
      */
     public function passes(string $attribute, $value): bool
     {
-        // Статический стек для хранения результатов валидации (для быстродействия)
-        static $stack = [];
-
-        // Если значение в стеке уже есть - то просто возвращаем его
-        if (! isset($stack[$value])) {
-            // Разрешенные кириллические символы
-            static $kyr_chars = 'А-ЯЁ';
-
-            // Значение в верхнем регистре
-            $uppercase = Str::upper($value);
-
-            // Вычисляем длину строки
-            $length = Str::length($uppercase);
-
-            $stack[$value] = (
-                $length >= 8 && $length <= 15 // Проверяем соответствие минимальной и максимальной длине
-                && \preg_match('~\d~', $value) === 1 // Содержит числа
-                // Соответствует ли шаблону
-                && \preg_match("~^[{$kyr_chars}A-Z\d]{2,}(\-|\s|)[{$kyr_chars}A-Z\d]{2,9}$~iu", $uppercase) === 1
-            );
+        if (!\is_string($value)) {
+            return false;
         }
 
-        return $stack[$value];
+        $length = \mb_strlen($value, 'UTF-8');
+
+        return $length >= self::LENGTH_MIN && $length <= self::LENGTH_MAX
+            && Strings::hasOnlyUppercaseLetters($value)
+            && Strings::hasOnlyUpperLettersAndDigits($value)
+            && Strings::hasAtLeastOneNotZeroDigit($value)
+            && !$this->hasBothAlphabets($value);
+    }
+
+    /**
+     * Определяет содержание в строке символов из латинского и кириллического Алфавитов.
+     *
+     * @param string $value
+     * @return bool
+     */
+    private function hasBothAlphabets(string $value): bool
+    {
+        return Strings::hasAtLeastOneLatinUpperLetter($value) && Strings::hasAtLeastOneCyrUpperLetter($value);
     }
 }

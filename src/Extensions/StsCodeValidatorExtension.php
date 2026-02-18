@@ -4,7 +4,6 @@ declare(strict_types = 1);
 
 namespace AvtoDev\ExtendedLaravelValidator\Extensions;
 
-use Illuminate\Support\Str;
 use AvtoDev\ExtendedLaravelValidator\AbstractValidatorExtension;
 
 /**
@@ -34,27 +33,18 @@ class StsCodeValidatorExtension extends AbstractValidatorExtension
      */
     public function passes(string $attribute, $value): bool
     {
-        // Статический стек для хранения результатов валидации (для быстродействия)
-        static $stack = [];
+        return \is_string($value) && $this->hasStsCodeFormat($value);
+    }
 
-        // Если значение в стеке уже есть - то просто возвращаем его
-        if (! isset($stack[$value])) {
-            // Разрешенные кириллические символы
-            static $kyr_chars = 'А-ЯЁ';
-
-            // Значение в верхнем регистре
-            $uppercase = Str::upper($value);
-
-            // Вычисляем длину строки
-            $length = Str::length($uppercase);
-
-            $stack[$value] = (
-                $length >= 10 && $length <= 12 // Проверяем соответствие минимальной и максимальной длине
-                // Соответствует ли шаблону
-                && \preg_match("~^\d{2}(\s|)([{$kyr_chars}]{2}|\d{2})(\s|)\d{6}$~iu", $uppercase) === 1
-            );
-        }
-
-        return $stack[$value];
+    /**
+     * Определяет соответствие общему формату СТС.
+     *
+     * @param string $value
+     *
+     * @return bool
+     */
+    private function hasStsCodeFormat(string $value): bool
+    {
+        return \preg_match('/^\d{2}\s?([А-ЯЁ]{2}|\d{2})\s?\d{6}$/u', $value) === 1;
     }
 }

@@ -14,6 +14,25 @@ use AvtoDev\ExtendedLaravelValidator\Extensions\VinCodeValidatorExtension;
 class VinCodeValidatorExtensionTest extends AbstractExtensionTestCase
 {
     /**
+     * @return void
+     */
+    public function testInvalidValueType(): void
+    {
+        $cases = [
+            new \stdClass(),
+            false,
+            1.222,
+            []
+        ];
+
+        $instance = new VinCodeValidatorExtension;
+
+        foreach ($cases as $case) {
+            $this->assertFalse($instance->passes('foo', $case));
+        }
+    }
+
+    /**
      * {@inheritdoc}
      */
     protected function getExtensionClassName(): string
@@ -72,6 +91,12 @@ class VinCodeValidatorExtensionTest extends AbstractExtensionTestCase
             'JTEHТ05J602091383',
             'XTА21124070486756',
 
+            // Содержащие строчные буквы
+            'Xw8ZZZ61ZLG028617',
+            '5uxfa13585ly08847',
+            'wbafw51040C245397',
+            'z94cb41abdr105897',
+
             // Содержащие запрещенные символы
             'XTAIS015LG0916164',
             'JTHBK2623620O3591',
@@ -81,6 +106,8 @@ class VinCodeValidatorExtensionTest extends AbstractExtensionTestCase
             'WP0ZZZ97ZDQ001414',
             'WBAUE11010I754323',
             'YV1CZ59O641113082',
+            'ХW8ZZZ61ZLG028617',
+            'XW8ZZ.61ZLG028617',
 
             // Без единой цифры
             'XWBFFKSXWBFFKSXWB',
@@ -93,6 +120,17 @@ class VinCodeValidatorExtensionTest extends AbstractExtensionTestCase
             '11111111111111111',
             '88888888888888888',
             '09876543210987654',
+
+            // Должна быть хотя бы одна цифра отличная от нуля и хотя бы одна буква
+            '00000000000000001',
+            'AAAAAAAAAAAAAAAAA',
+            'A0000000000000000',
+
+            // Последние четыре символа должны быть цифрами.
+            'XW8ZZI61ZLG02861Z',
+            'XW8ZZI61ZLG0286Z7',
+            'XW8ZZI61ZLG028Z17',
+            'XW8ZZI61ZLG02Z617',
         ];
     }
 
@@ -102,11 +140,6 @@ class VinCodeValidatorExtensionTest extends AbstractExtensionTestCase
     protected function getValidValues(): array
     {
         return [
-            // В нижнем регистре
-            '5uxfa13585ly08847',
-            'wbafw51040C245397',
-            'z94cb41abdr105897',
-
             '5UXFA13585LY08847',
             'WBAFW51040C245397',
             'Z94CB41ABDR105897',
@@ -207,6 +240,8 @@ class VinCodeValidatorExtensionTest extends AbstractExtensionTestCase
             'SALWA2EF8EA381025',
             'WF03XXGCD36Y43748',
             'XWF0AHM75B0002747',
+            'XW8ZZZ61ZLG028617',
+            'A0000000000000001',
         ];
     }
 }

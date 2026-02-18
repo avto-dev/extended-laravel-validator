@@ -26,9 +26,11 @@ use AvtoDev\ExtendedLaravelValidator\AbstractValidatorExtension;
  *  - 0000ММ77 (тип 8 - Для мотоциклов, мотороллеров, мопедов)
  *  - ММ000М77 или ММ000М777 (тип 15 - Для легковых, грузовых, грузопассажирских автомобилей, автобусов, прицепов и
  * полуприцепов (Транзит, ламинированный))
+ *  - ММ000077 (тип 16 - Для мотоциклов (Транзит, ламинированный))
  *  - М000077 (тип 20 - Для легковых, грузовых, грузопассажирских автомобилей и автобусов)
  *  - 000М77 (тип 21 - Для автомобильных прицепов и полуприцепов)
  *  - 0000М77 (тип 22 - Для мотоциклов)
+ *  - 000ММ77 (тип 25 - Для классических (ретро) мотоциклов)
  *
  * Где:
  *  - "0" и "М" - соответственно буква или цифра, обозначающие номер и серию регистрационного знака ТС
@@ -45,6 +47,10 @@ use AvtoDev\ExtendedLaravelValidator\AbstractValidatorExtension;
  */
 class GrzCodeValidatorExtension extends AbstractValidatorExtension
 {
+    private const MIN_LENGTH = 6;
+    private const MAX_LENGTH = 9;
+    private const ALLOWED_CHARACTERS = 'АВЕКМНОРСТУХ';
+
     /**
      * {@inheritdoc}
      */
@@ -60,40 +66,43 @@ class GrzCodeValidatorExtension extends AbstractValidatorExtension
      */
     public function passes(string $attribute, $value): bool
     {
-        // Статический стек для хранения результатов валидации (для быстродействия)
-        static $stack = [];
-
-        // Если значение в стеке уже есть - то просто возвращаем его
-        if (! isset($stack[$value])) {
-            // Разрешенные кириллические символы
-            static $kyr_chars = 'АВЕКМНОРСТУХ';
-
-            // Значение в верхнем регистре
-            $uppercase = Str::upper($value);
-
-            // Удаляем все символы, кроме разрешенных
-            $cleared = (string) \preg_replace("~[^0-9{$kyr_chars}]~u", '', $uppercase);
-
-            // Вычисляем длину получившейся строки
-            $length = Str::length($cleared);
-
-            $stack[$value] = (
-                $length >= 6 && $length <= 9 // Проверяем соответствие минимальной и максимальной длине
-                && $uppercase === $cleared // После удаления запрещенных символов - значение не изменилось
-                && ( // Соответствует ли одному из шаблонов
-                    \preg_match("~^[{$kyr_chars}]{1}\d{3}[{$kyr_chars}]{2}\d{2,3}$~iu", $cleared) === 1 // М000ММ77 и М000ММ777
-                    || \preg_match("~^[{$kyr_chars}]{1}\d{3}[{$kyr_chars}]{2}$~iu", $cleared) === 1 // М000ММ
-                    || \preg_match("~^[{$kyr_chars}]{2}\d{3}\d{2}$~iu", $cleared) === 1 // ММ00077
-                    || \preg_match("~^\d{4}[{$kyr_chars}]{2}\d{2}$~iu", $cleared) === 1 // 0000ММ77
-                    || \preg_match("~^[{$kyr_chars}]{2}\d{4}\d{2}$~iu", $cleared) === 1 // ММ000077
-                    || \preg_match("~^[{$kyr_chars}]{1}\d{4}\d{2}$~iu", $cleared) === 1 // М000077
-                    || \preg_match("~^\d{3}[{$kyr_chars}]{1}\d{2}$~iu", $cleared) === 1 // 000М77
-                    || \preg_match("~^\d{4}[{$kyr_chars}]{1}\d{2}$~iu", $cleared) === 1 // 0000М77
-                    || \preg_match("~^[{$kyr_chars}]{2}\d{3}[{$kyr_chars}]\d{2,3}$~iu", $cleared) === 1 // ММ000М77 и ММ000М777
-                )
-            );
+        if (! \is_string($value)) {
+            return false;
         }
 
-        return $stack[$value];
+        // Длина входной строки
+        $value_length = Str::length($value);
+
+        // Удаляем все символы, кроме разрешенных
+        $cleared_value = (string) \preg_replace('~[^0-9' . self::ALLOWED_CHARACTERS . ']~u', '', $value);
+
+        // Длина получившейся строки
+        $cleared_length = Str::length($cleared_value);
+
+        return $value_length === $cleared_length // Входная строка содержит только разрешённые символы,
+            && $cleared_length >= self::MIN_LENGTH && $cleared_length <= self::MAX_LENGTH // её длина находится в разрешённом диапазоне
+            && $this->hasGrzCodeFormat($cleared_value); // и она соответствует одному из шаблонов ГРЗ
+    }
+
+    /**
+     * Определяет соответствие одному из форматов ГРЗ транспортного средства.
+     *
+     * @param string $value
+     *
+     * @return bool
+     */
+    private function hasGrzCodeFormat(string $value): bool
+    {
+        $allowed_chars = self::ALLOWED_CHARACTERS;
+
+        return \preg_match("/^[{$allowed_chars}]{1}\d{3}[{$allowed_chars}]{2}\d{2,3}$/u", $value) === 1 // М000ММ77 и М000ММ777
+            || \preg_match("/^[{$allowed_chars}]{1}\d{3}[{$allowed_chars}]{2}$/u", $value) === 1 // М000ММ
+            || \preg_match("/^[{$allowed_chars}]{2}\d{3}\d{2}$/u", $value) === 1 // ММ00077
+            || \preg_match("/^\d{4}[{$allowed_chars}]{2}\d{2}$/u", $value) === 1 // 0000ММ77
+            || \preg_match("/^[{$allowed_chars}]{2}\d{4}\d{2}$/u", $value) === 1 // ММ000077
+            || \preg_match("/^[{$allowed_chars}]{1}\d{4}\d{2}$/u", $value) === 1 // М000077
+            || \preg_match("/^\d{3}[{$allowed_chars}]{1,2}\d{2}$/u", $value) === 1 // 000М77 и 000ММ77
+            || \preg_match("/^\d{4}[{$allowed_chars}]{1}\d{2}$/u", $value) === 1 // 0000М77
+            || \preg_match("/^[{$allowed_chars}]{2}\d{3}[{$allowed_chars}]\d{2,3}$/u", $value) === 1; // ММ000М77 и ММ000М777
     }
 }

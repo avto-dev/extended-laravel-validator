@@ -4,20 +4,18 @@ declare(strict_types = 1);
 
 namespace AvtoDev\ExtendedLaravelValidator\Extensions;
 
-use Illuminate\Support\Str;
+use AvtoDev\ExtendedLaravelValidator\Helpers\Strings;
 use AvtoDev\ExtendedLaravelValidator\AbstractValidatorExtension;
 
 /**
- * Правило валидации VIN-кодов.
+ * Правила валидации VIN транспортного средства.
  *
- * Структура кода основана на стандартах ISO 3779-1983 и ISO 3780.
- * В VIN разрешено использовать только следующие символы латинского алфавита и арабские цифры:
- * 0 1 2 3 4 5 6 7 8 9 A B C D E F G H J K L M N P R S T U V W X Y Z
- *
- * Использовать буквы I, O, Q запрещено, так как они сходны по начертанию с цифрами 1, 0, а также между
- * собой.
- *
- * @see <http://goo.gl/xlDFCk>
+ * 1. Длина 17 символов
+ * 2. Верхний регистр
+ * 3. Набор символов — цифры и латиница за исключением символов `Q`, `I`, `O`
+ * 4. Последние четыре символа — цифры
+ * 5. Хотя бы одна буква
+ * 6. Хотя бы одна цифра != 0
  */
 class VinCodeValidatorExtension extends AbstractValidatorExtension
 {
@@ -36,27 +34,20 @@ class VinCodeValidatorExtension extends AbstractValidatorExtension
      */
     public function passes(string $attribute, $value): bool
     {
-        // Статический стек для хранения результатов валидации (для быстродействия)
-        static $stack = [];
+        return \is_string($value)
+            && $this->hasVinCodeFormat($value)
+            && Strings::hasAtLeastOneLatinUpperLetter($value)
+            && Strings::hasAtLeastOneNotZeroDigit($value);
+    }
 
-        // Если значение в стеке уже есть - то просто возвращаем его
-        if (! isset($stack[$value])) {
-            // Значение в верхнем регистре
-            $uppercase = Str::upper($value);
-
-            // Удаляем все символы, кроме разрешенных
-            $cleared = \preg_replace('~[^0-9ABCDEFGHJKLMNPRSTUVWXYZ]~', '', $uppercase);
-
-            $stack[$value] = (
-                Str::length($value) === 17 // Длинна соответствует
-                && $uppercase === $cleared // После удаления запрещенных символов - значение не изменилось
-                && \preg_match('~[A-Z]~', $uppercase) === 1 // Содержит символы
-                && \preg_match('~\d~', $value) === 1 // Содержит числа
-                && ! Str::contains($uppercase, ['I', 'O', 'Q']) // Не содержит запрещенные символы
-                && \is_numeric(Str::substr($uppercase, -4, 4)) // Последние четыре символа обязательно числа
-            );
-        }
-
-        return $stack[$value];
+    /**
+     * Определяет соответствие общему формату VIN транспортного средства.
+     *
+     * @param string $value
+     * @return bool
+     */
+    private function hasVinCodeFormat(string $value): bool
+    {
+        return preg_match('/^[A-HJ-NPR-Z0-9]{13}[0-9]{4}$/', $value) === 1;
     }
 }

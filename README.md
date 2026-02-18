@@ -18,7 +18,7 @@ This package provides extended validation rules for [Laravel validator][laravel_
 Require this package with composer using the following command:
 
 ```shell
-$ composer require avto-dev/extended-laravel-validator "^3.0"
+$ composer require avto-dev/extended-laravel-validator "^6.0"
 ```
 
 > Installed `composer` is required ([how to install composer][getcomposer]).
@@ -45,6 +45,7 @@ This package provides next validation rules:
 | `chassis_code`          | Vehicle chassis number                         |
 | `driver_license_number` | Driving license number                         |
 | `cadastral_number`      | Cadastral number (unique property number)      |
+| `epts_code`             | Vehicle Electronic Passport Number (EPTS)      |
 
 Usage example:
 

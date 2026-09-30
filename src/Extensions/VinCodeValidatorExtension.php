@@ -13,7 +13,7 @@ use AvtoDev\ExtendedLaravelValidator\AbstractValidatorExtension;
  * 1. Длина 17 символов
  * 2. Верхний регистр
  * 3. Набор символов — цифры и латиница за исключением символов `Q`, `I`, `O`
- * 4. Последние четыре символа — цифры
+ * 4. Последние три символа — цифры
  * 5. Хотя бы одна буква
  * 6. Хотя бы одна цифра != 0
  */
@@ -48,6 +48,6 @@ class VinCodeValidatorExtension extends AbstractValidatorExtension
      */
     private function hasVinCodeFormat(string $value): bool
     {
-        return preg_match('/^[A-HJ-NPR-Z0-9]{13}[0-9]{4}$/', $value) === 1;
+        return preg_match('/^[A-HJ-NPR-Z0-9]{14}[0-9]{3}$/', $value) === 1;
     }
 }

@@ -126,11 +126,10 @@ class VinCodeValidatorExtensionTest extends AbstractExtensionTestCase
             'AAAAAAAAAAAAAAAAA',
             'A0000000000000000',
 
-            // Последние четыре символа должны быть цифрами.
-            'XW8ZZI61ZLG02861Z',
-            'XW8ZZI61ZLG0286Z7',
-            'XW8ZZI61ZLG028Z17',
-            'XW8ZZI61ZLG02Z617',
+            // Последние три символа должны быть цифрами.
+            'XW8ZZZ61ZLG02861Z',
+            'XW8ZZZ61ZLG0286Z7',
+            'XW8ZZZ61ZLG028Z17',
         ];
     }
 
@@ -242,6 +241,7 @@ class VinCodeValidatorExtensionTest extends AbstractExtensionTestCase
             'XWF0AHM75B0002747',
             'XW8ZZZ61ZLG028617',
             'A0000000000000001',
+            'LA99182X9S0JYJ219',
         ];
     }
 }
